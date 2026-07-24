@@ -30,7 +30,7 @@
   a{color:inherit;text-decoration:none;}
   ::selection{background:var(--accent);color:#fff;}
   .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px;}
-  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:500;}
 
   /* header */
   header{border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;
@@ -48,7 +48,7 @@
   .hero{padding:88px 0 64px;border-bottom:1px solid var(--line);}
   .hero h1{font-size:clamp(34px,6vw,64px);line-height:1.04;letter-spacing:-.025em;
     font-weight:700;margin:18px 0 0;max-width:16ch;text-wrap:balance;}
-  .hero h1 .q{color:var(--muted);}
+  .hero h1 .q{color:var(--green);}
   .hero .lead{margin:26px 0 0;font-size:clamp(16px,2.1vw,20px);color:var(--ink-2);max-width:60ch;line-height:1.55;}
   .actions{display:flex;flex-wrap:wrap;gap:26px;margin-top:34px;}
   .actions a{font-family:var(--mono);font-size:14px;font-weight:500;color:var(--ink);
@@ -115,6 +115,8 @@
   @media(prefers-reduced-motion:reduce){*{transition:none!important;}}
 
   /* pops de cor — paleta IFES, com parcimônia */
+  .lead b{color:var(--accent);font-weight:600;}
+  .idx a:hover h3{color:var(--accent);}
   .metrics div:nth-child(1) b{color:var(--green);}
   .metrics div:nth-child(2) b{color:var(--blue);}
   .metrics div:nth-child(3) b{color:var(--red);}
@@ -148,7 +150,7 @@
     <section class="hero" style="border-bottom:0;padding-bottom:40px">
       <p class="eyebrow">IFES · Campus Serra — laboratório de dados</p>
       <h1>O que o campus faz, em dados <span class="q">— não em relatórios perdidos.</span></h1>
-      <p class="lead">Construímos os pipelines (ETL), painéis e agentes que extraem, cruzam e publicam os dados de extensão, pesquisa e editais do Campus Serra. Código aberto, reprodutível e sem dados pessoais de alunos.</p>
+      <p class="lead">Construímos os pipelines (ETL), painéis e agentes que extraem, cruzam e publicam os dados de <b>extensão, pesquisa e editais</b> do Campus Serra. Código aberto, reprodutível e <b>sem dados pessoais de alunos</b>.</p>
     </section>
 
     <div class="metrics">
