@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>IFES Serra · Lab — dados e automação do Campus Serra</title>
+<meta name="description" content="Laboratório de dados e automação do IFES Campus Serra: painéis, ETL, agentes e portais para extensão, pesquisa, ensino e editais." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='4' fill='%233b82f6'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Fira+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    color-scheme: light;
+    --plane:#f6f8fb; --surface:#fff; --sunk:#f1f5f9; --parchment:#eef2f7;
+    --text:#1e293b; --text-2:#475569; --muted:#64748b; --grid:#e2e8f0; --border:#cbd5e1;
+    --c1:#3b82f6; --c2:#0d9488; --c3:#d97706; --c4:#7c3aed; --c5:#0891b2; --c6:#db2777;
+    --good:#16a34a; --shadow:0 1px 2px rgba(15,23,42,.04),0 4px 12px rgba(15,23,42,.05);
+    --radius:14px; --sans:"Fira Sans",ui-sans-serif,system-ui,sans-serif; --mono:"Fira Code",ui-monospace,monospace; --wrap:1100px;
+  }
+  @media (prefers-color-scheme: dark) { :root {
+    color-scheme: dark;
+    --plane:#0b1220; --surface:#141d2e; --sunk:#111a2b; --parchment:#1c2740;
+    --text:#f1f5f9; --text-2:#cbd5e1; --muted:#94a3b8; --grid:#28344a; --border:#3a4a66;
+    --c1:#60a5fa; --c2:#2dd4bf; --c3:#fbbf24; --c4:#a78bfa; --c5:#22d3ee; --c6:#f472b6;
+    --good:#4ade80; --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.35);
+  } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--plane); color:var(--text); font-family:var(--sans); font-size:15px; line-height:1.55; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  a { color:inherit; }
+  .wrap { max-width:var(--wrap); margin:0 auto; padding:0 18px; }
+  header { position:sticky; top:0; z-index:20; background:color-mix(in srgb, var(--surface) 88%, transparent); backdrop-filter:blur(10px); border-bottom:1px solid var(--grid); }
+  .bar { display:flex; align-items:center; gap:12px; min-height:58px; }
+  .brand { display:flex; align-items:center; gap:9px; font-weight:700; text-decoration:none; margin-right:auto; }
+  .brand .dot { width:12px; height:12px; border-radius:4px; background:var(--c1); box-shadow:0 0 0 3px color-mix(in srgb,var(--c1) 22%,transparent); }
+  .brand small { color:var(--muted); font-weight:400; font-size:12px; }
+  .bar nav { display:flex; gap:4px; }
+  .bar nav a { padding:7px 12px; border-radius:9px; text-decoration:none; color:var(--text-2); font-weight:500; font-size:14px; }
+  .bar nav a:hover { background:var(--parchment); color:var(--text); }
+  .hero { padding:56px 0 30px; text-align:center; }
+  .hero h1 { font-size:30px; font-weight:700; letter-spacing:-.02em; margin:0 0 12px; text-wrap:balance; }
+  @media (min-width:640px){ .hero h1 { font-size:44px; } }
+  .hero p { color:var(--text-2); font-size:17px; max-width:60ch; margin:0 auto 22px; }
+  .cta { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+  .btn { display:inline-flex; align-items:center; gap:8px; padding:11px 20px; border-radius:11px; font-weight:600; font-size:15px; text-decoration:none; border:1px solid var(--border); background:var(--surface); color:var(--text); transition:.15s; }
+  .btn.primary { background:var(--c1); border-color:var(--c1); color:#fff; }
+  .btn:hover { transform:translateY(-1px); box-shadow:var(--shadow); }
+  .stats { display:flex; gap:26px; justify-content:center; flex-wrap:wrap; margin-top:34px; }
+  .stats div { text-align:center; }
+  .stats b { display:block; font-size:30px; font-weight:800; color:var(--c1); letter-spacing:-.02em; }
+  .stats span { font-size:13px; color:var(--muted); }
+  section.blk { padding:38px 0; }
+  h2.sec { font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin:0 0 16px; }
+  .feat { display:grid; grid-template-columns:1fr; gap:16px; }
+  @media (min-width:760px){ .feat { grid-template-columns:1fr 1fr; } }
+  .fcard { display:block; background:var(--surface); border:1px solid var(--grid); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow); text-decoration:none; transition:.15s; }
+  .fcard:hover { border-color:var(--c1); transform:translateY(-2px); }
+  .fcard .tag { display:inline-block; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:var(--c1); background:color-mix(in srgb,var(--c1) 12%,transparent); padding:3px 9px; border-radius:999px; margin-bottom:10px; }
+  .fcard h3 { margin:0 0 6px; font-size:19px; }
+  .fcard p { margin:0; color:var(--text-2); font-size:14px; }
+  .grid { display:grid; grid-template-columns:1fr; gap:12px; }
+  @media (min-width:560px){ .grid { grid-template-columns:1fr 1fr; } }
+  @media (min-width:900px){ .grid { grid-template-columns:1fr 1fr 1fr; } }
+  .repo { display:flex; flex-direction:column; gap:8px; background:var(--surface); border:1px solid var(--grid); border-radius:12px; padding:16px; box-shadow:var(--shadow); text-decoration:none; transition:.15s; }
+  .repo:hover { border-color:var(--c1); transform:translateY(-1px); }
+  .repo .nm { font-weight:600; font-size:15px; color:var(--c1); font-family:var(--mono); word-break:break-word; }
+  .repo .ds { color:var(--text-2); font-size:13px; flex:1; }
+  .repo .mt { display:flex; gap:12px; align-items:center; color:var(--muted); font-size:12px; }
+  .repo .lang { display:inline-flex; align-items:center; gap:5px; }
+  .repo .lang i { width:9px; height:9px; border-radius:50%; background:var(--c3); }
+  .grp { font-size:15px; font-weight:700; margin:26px 0 12px; }
+  .grp:first-of-type { margin-top:0; }
+  .msg { color:var(--muted); padding:20px 0; }
+  .tools { display:flex; flex-wrap:wrap; gap:8px; }
+  .tools span { font-family:var(--mono); font-size:12.5px; padding:5px 11px; border-radius:8px; background:var(--sunk); color:var(--text-2); border:1px solid var(--grid); }
+  footer { border-top:1px solid var(--grid); padding:26px 0 40px; color:var(--muted); font-size:13px; margin-top:20px; }
+  footer a { color:var(--c1); text-decoration:none; }
+</style>
+</head>
+<body>
+  <header><div class="wrap bar">
+    <a class="brand" href="/"><span class="dot"></span>IFES Serra · Lab <small>dados &amp; automação</small></a>
+    <nav>
+      <a href="#projetos">Projetos</a>
+      <a href="/src/">Painel</a>
+      <a href="https://github.com/ifesserra-lab" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div></header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>Dados e automação para o Campus Serra</h1>
+      <p>Laboratório do <b>IFES — Campus Serra</b> que constrói painéis, pipelines de dados (ETL), agentes e portais para apoiar <b>extensão, pesquisa, ensino e editais</b> — transformando registros dispersos em inteligência para alunos e gestão.</p>
+      <div class="cta">
+        <a class="btn primary" href="/src/">📊 Painel de Extensão</a>
+        <a class="btn" href="https://github.com/ifesserra-lab" target="_blank" rel="noopener">Ver no GitHub</a>
+      </div>
+      <div class="stats">
+        <div><b id="st-repos">17</b><span>repositórios públicos</span></div>
+        <div><b>SRC</b><span>painel de extensão ao vivo</span></div>
+        <div><b>Horizon</b><span>inteligência de pesquisa</span></div>
+      </div>
+    </section>
+
+    <section class="blk">
+      <h2 class="sec">Destaques</h2>
+      <div class="feat">
+        <a class="fcard" href="/src/">
+          <span class="tag">Ao vivo</span>
+          <h3>Painel de Extensão — SRC</h3>
+          <p>O que a extensão do Campus Serra já fez: 200+ ações, atividades, extensionistas, temas, investimento e o índice FORPROEX — sem dados pessoais de alunos.</p>
+        </a>
+        <a class="fcard" href="https://github.com/ifesserra-lab/horizon_dashboard" target="_blank" rel="noopener">
+          <span class="tag">Projeto Horizon</span>
+          <h3>Horizon — pesquisa &amp; editais</h3>
+          <p>Engenharia de dados (Prefect + Python + Supabase) que centraliza dados acadêmicos e gera inteligência sobre grupos de pesquisa, editais e produção.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="blk" id="projetos">
+      <h2 class="sec">Projetos (repositórios públicos)</h2>
+      <div id="repos"><p class="msg">Carregando repositórios…</p></div>
+    </section>
+
+    <section class="blk">
+      <h2 class="sec">Nossa toolbox</h2>
+      <div class="tools">
+        <span>Python</span><span>Playwright</span><span>Astro</span><span>Prefect</span>
+        <span>Supabase</span><span>PostgreSQL</span><span>Docker</span><span>httpx</span><span>Pagefind</span><span>IA / LLM</span>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap">
+    📍 <b>IFES — Campus Serra</b> · <a href="https://serra.ifes.edu.br/" target="_blank" rel="noopener">Site institucional</a> ·
+    <a href="https://github.com/ifesserra-lab" target="_blank" rel="noopener">github.com/ifesserra-lab</a> ·
+    <a href="/src/">Painel de Extensão</a>
+    <div style="margin-top:8px">Página lista automaticamente os repositórios públicos via API do GitHub.</div>
+  </div></footer>
+
+<script>
+  // categoriza cada repo em UM grupo (primeira regra que casar), senão "Outros".
+  const REGRAS = [
+    ['Painéis & visualização', /dashboard|painel|dash|egressos|diretoria|visualiz/i],
+    ['Agentes & automação', /agent|agente|hermes|homologacao|sigpesq|retrieve|scrape|bot/i],
+    ['ETL & bibliotecas de dados', /etl|_lib|\blib\b|scriptlattes|research|factor|fapes|cnqp|domain/i],
+    ['Portais, sites & busca', /portal|site|busca|nexo|sbf|gedoc|snct|edital/i],
+  ];
+  const catOf = (r) => {
+    const s = (r.name + ' ' + (r.description||'') + ' ' + (r.topics||[]).join(' '));
+    for (const [nome, re] of REGRAS) if (re.test(s)) return nome;
+    return 'Outros';
+  };
+  const esc = (s) => (s||'').replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+
+  async function load() {
+    const el = document.getElementById('repos');
+    try {
+      const r = await fetch('https://api.github.com/orgs/ifesserra-lab/repos?per_page=100&sort=updated', { headers:{'Accept':'application/vnd.github+json'} });
+      if (!r.ok) throw new Error(r.status);
+      const OCULTAR = new Set(['.github', 'ifesserra-lab.github.io']);
+      let repos = (await r.json()).filter(x => !x.private && !x.archived && !x.fork && !OCULTAR.has(x.name));
+      document.getElementById('st-repos').textContent = repos.length;
+      // agrupa
+      const grupos = {};
+      for (const rp of repos) (grupos[catOf(rp)] ||= []).push(rp);
+      const ordem = ['Painéis & visualização','ETL & bibliotecas de dados','Agentes & automação','Portais, sites & busca','Outros'];
+      const cats = ordem.filter(c => grupos[c]);
+      el.innerHTML = cats.map(cat => {
+        const items = grupos[cat].sort((a,b)=> b.stargazers_count-a.stargazers_count || a.name.localeCompare(b.name));
+        return `<div class="grp">${esc(cat)} <span style="color:var(--muted);font-weight:500">(${items.length})</span></div>
+          <div class="grid">${items.map(rp => `
+            <a class="repo" href="${rp.html_url}" target="_blank" rel="noopener">
+              <span class="nm">${esc(rp.name)}</span>
+              <span class="ds">${esc(rp.description || 'Sem descrição.')}</span>
+              <span class="mt">
+                ${rp.language ? `<span class="lang"><i></i>${esc(rp.language)}</span>` : ''}
+                ${rp.stargazers_count ? `<span>★ ${rp.stargazers_count}</span>` : ''}
+              </span>
+            </a>`).join('')}</div>`;
+      }).join('');
+    } catch (e) {
+      el.innerHTML = `<p class="msg">Não foi possível carregar agora (limite da API do GitHub). Veja tudo em <a href="https://github.com/ifesserra-lab?tab=repositories">github.com/ifesserra-lab</a>.</p>`;
+    }
+  }
+  load();
+</script>
+</body>
+</html>
