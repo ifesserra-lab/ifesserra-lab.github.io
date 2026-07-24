@@ -113,6 +113,27 @@
   footer a:hover{color:var(--ink);border-bottom-color:var(--accent);}
   :where(a,button):focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   @media(prefers-reduced-motion:reduce){*{transition:none!important;}}
+
+  /* pops de cor — paleta IFES, com parcimônia */
+  .metrics div:nth-child(1) b{color:var(--green);}
+  .metrics div:nth-child(2) b{color:var(--blue);}
+  .metrics div:nth-child(3) b{color:var(--red);}
+  .metrics div:nth-child(4) b{color:var(--accent);}
+  .idx a:nth-of-type(4n+1) .n{color:var(--green);}
+  .idx a:nth-of-type(4n+2) .n{color:var(--blue);}
+  .idx a:nth-of-type(4n+3) .n{color:var(--red);}
+  .idx a:nth-of-type(4n+4) .n{color:var(--accent);}
+  .rgroup > h4{display:flex;align-items:center;gap:8px;}
+  .rgroup > h4::before{content:"";width:8px;height:8px;flex:none;background:var(--muted);}
+  .rgroup:nth-of-type(1) > h4::before{background:var(--green);}
+  .rgroup:nth-of-type(2) > h4::before{background:var(--blue);}
+  .rgroup:nth-of-type(3) > h4::before{background:var(--red);}
+  .rgroup:nth-of-type(4) > h4::before{background:var(--yellow);}
+  .rgroup:nth-of-type(5) > h4::before{background:var(--green-dark);}
+  .ldot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:6px;vertical-align:baseline;}
+  /* faixa IFES também no rodapé, fininha */
+  footer{border-top:3px solid transparent;
+    border-image:linear-gradient(90deg,var(--green) 0 25%,var(--yellow) 25% 50%,var(--red) 50% 75%,var(--blue) 75% 100%) 1;}
 </style>
 </head>
 <body>
@@ -170,11 +191,11 @@
             <p>Busca full-text sobre o acervo de documentos institucionais do campus — encontre normas, atas e editais em segundos.</p></div>
           <span class="go">gedocs.vercel.app ↗</span>
         </a>
-        <a href="https://horizon.vercel.app/" target="_blank" rel="noopener">
+        <a href="/horizon_dashboard/">
           <span class="n">06</span>
           <div><h3>Horizon — pesquisa &amp; produção</h3>
             <p>Centraliza dados acadêmicos e gera inteligência sobre grupos de pesquisa, produção e editais. Pipeline em Prefect + Supabase, arquitetura hexagonal.</p></div>
-          <span class="go">horizon.vercel.app ↗</span>
+          <span class="go">ifesserra-lab.github.io/horizon_dashboard ↗</span>
         </a>
       </div>
     </section>
@@ -212,6 +233,9 @@
     for (const [n,re] of REGRAS) if (re.test(s)) return n; return 'outros'; };
   const esc = (s)=>(s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
   const yr = (d)=> d ? new Date(d).getFullYear() : '';
+  const LANGCOLOR = {Python:'#3572A5',Astro:'#ff5a03',Rust:'#dea584',HTML:'#e34c26',CSS:'#563d7c',
+    JavaScript:'#f1e05a',TypeScript:'#3178c6',Vue:'#41b883',Shell:'#89e051','Jupyter Notebook':'#DA5B0B',Svelte:'#ff3e00'};
+  const ldot = (l)=> l ? `<span class="ldot" style="background:${LANGCOLOR[l]||'var(--muted)'}"></span>` : '';
 
   async function load(){
     const el = document.getElementById('repos');
@@ -230,7 +254,7 @@
           <a class="row" href="${rp.html_url}" target="_blank" rel="noopener">
             <span class="nm">${esc(rp.name)}</span>
             <span class="ds">${esc(rp.description || '—')}</span>
-            <span class="mt">${rp.language?esc(rp.language):'—'}${rp.pushed_at?' · '+yr(rp.pushed_at):''}${rp.stargazers_count?' · ★'+rp.stargazers_count:''}</span>
+            <span class="mt">${ldot(rp.language)}${rp.language?esc(rp.language):'—'}${rp.pushed_at?' · '+yr(rp.pushed_at):''}${rp.stargazers_count?' · ★'+rp.stargazers_count:''}</span>
           </a>`).join('')}</div>`;
       }).join('');
     }catch(e){
