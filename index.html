@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ifesserra-lab — laboratório de dados do IFES Campus Serra</title>
-<meta name="description" content="Laboratório do IFES Campus Serra: pipelines (ETL), painéis e agentes que tornam extensão, pesquisa e editais legíveis. Código aberto." />
+<meta name="description" content="Painéis abertos com os dados de extensão, pesquisa e editais do IFES Campus Serra: 201 ações, 757 extensionistas e a trajetória de quem passou por aqui." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23006b3f'/%3E%3Crect x='3' y='3' width='4' height='4' fill='%23fff'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -179,9 +179,9 @@
     </section>
 
     <div class="metrics">
-      <div><b id="m-repos">17</b><span>repositórios públicos</span></div>
-      <div><b>200+</b><span>ações de extensão</span></div>
-      <div><b>4.845</b><span>pessoas atingidas</span></div>
+      <div><b>201</b><span>ações de extensão</span></div>
+      <div><b>757</b><span>extensionistas</span></div>
+      <div><b>4.845</b><span>pessoas alcançadas</span></div>
       <div><b>6</b><span>painéis no ar</span></div>
     </div>
 
@@ -271,7 +271,6 @@
       if(!r.ok) throw new Error(r.status);
       const OCULTAR = new Set(['.github','ifesserra-lab.github.io']);
       const repos = (await r.json()).filter(x=>!x.private&&!x.archived&&!x.fork&&!OCULTAR.has(x.name));
-      document.getElementById('m-repos').textContent = repos.length;
       const grupos = {};
       for(const rp of repos)(grupos[catOf(rp)] ||= []).push(rp);
       const ordem = ['painéis & visualização','etl & bibliotecas de dados','agentes & automação','portais, sites & busca','outros'];
