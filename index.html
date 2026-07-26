@@ -154,11 +154,13 @@
       <p class="lead">Aqui reunimos os painéis que mostram como o Campus Serra impacta a sociedade: <b>nas pessoas</b> que alcança, e <b>pelas pessoas</b> que se dedicam a isso.</p>
     </section>
 
+    <!-- Números são o valor do último deploy e servem de fallback; a API do
+         painel SRC sobrescreve com o dado atual. Ver o <script> no fim. -->
     <div class="metrics">
-      <div><b>201</b><span>ações de extensão</span></div>
-      <div><b>757</b><span>extensionistas</span></div>
-      <div><b>4.845</b><span>pessoas alcançadas</span></div>
-      <div><b>6</b><span>painéis no ar</span></div>
+      <div><b id="m-acoes">201</b><span>ações de extensão</span></div>
+      <div><b id="m-ext">757</b><span>extensionistas</span></div>
+      <div><b id="m-pub">4.845</b><span>pessoas alcançadas</span></div>
+      <div><b id="m-paineis">6</b><span>painéis no ar</span></div>
     </div>
 
     <section>
@@ -266,5 +268,35 @@
   load();
 </script>
 
+<script>
+  /* Métricas de extensão puxadas da API estática do painel SRC (mesma origem,
+     sem CORS). Os números no HTML são o valor do último deploy e ficam como
+     fallback: se a API não responder, a página segue mostrando o último valor
+     conhecido em vez de um traço. */
+  (async function(){
+    const põe = (id, n) => {
+      const el = document.getElementById(id);
+      if(el && Number.isFinite(n)) el.textContent = n.toLocaleString('pt-BR');
+    };
+
+    // painéis no ar: conta os cards de "Em produção", então incluir um card novo
+    // já atualiza a métrica.
+    põe('m-paineis', document.querySelectorAll('.idx a').length);
+
+    const pega = async p => {
+      const r = await fetch('/src/api/' + p);
+      if(!r.ok) throw new Error(p + ' → ' + r.status);
+      return r.json();
+    };
+    try{
+      const [ix, painel] = await Promise.all([pega('index.json'), pega('painel.json')]);
+      põe('m-acoes', ix.acoes);
+      põe('m-ext', ix.extensionistas);
+      põe('m-pub', painel?.indicadores?.alunos_unicos);
+    }catch(e){
+      /* silencioso de propósito: o HTML já tem números válidos */
+    }
+  })();
+</script>
 </body>
 </html>
