@@ -71,7 +71,11 @@
     .metrics div:nth-child(3n){border-right:0;}
   }
   .metrics b{font-family:var(--mono);font-size:26px;font-weight:600;display:block;letter-spacing:-.01em;}
-  .metrics span{font-size:13px;color:var(--muted);}
+  .metrics span{font-size:13px;color:var(--muted);display:block;}
+  /* a frase: quem é a pessoa por trás do número. sem itálico — o site é sóbrio. */
+  .metrics em{display:block;margin-top:7px;font-style:normal;font-size:12.5px;line-height:1.4;
+    color:var(--ink-2);max-width:23ch;text-wrap:balance;}
+  @media(max-width:719px){.metrics em{font-size:12px;}}
 
   /* section */
   section{padding:64px 0;border-bottom:1px solid var(--line);}
@@ -161,14 +165,22 @@
     </section>
 
     <!-- Números são o valor do último deploy e servem de fallback; as APIs dos
-         painéis sobrescrevem com o dado atual. Ver o <script> no fim. -->
+         painéis sobrescrevem com o dado atual. Ver o <script> no fim.
+         As frases em <em> não podem conter número: o JS abaixo só troca o <b>,
+         então um número escrito na frase desatualiza em silêncio. -->
     <div class="metrics">
-      <div><b id="m-acoes">201</b><span>ações de extensão</span></div>
-      <div><b id="m-ext">757</b><span>extensionistas</span></div>
-      <div><b id="m-pub">4.845</b><span>pessoas alcançadas</span></div>
-      <div><b id="m-coorte">50</b><span>egressos acompanhados</span></div>
-      <div><b id="m-sm">10,5</b><span>mediana em salários mínimos</span></div>
-      <div><b id="m-empresas">204</b><span>empresas</span></div>
+      <div><b id="m-acoes">201</b><span>ações de extensão</span>
+        <em>Cada uma começou com alguém pedindo ajuda.</em></div>
+      <div><b id="m-ext">757</b><span>extensionistas</span>
+        <em>Levam o campus até quem não pode vir até ele.</em></div>
+      <div><b id="m-pub">4.845</b><span>alunos alcançados</span>
+        <em>Cada um saiu dali diferente de quando chegou.</em></div>
+      <div><b id="m-coorte">50</b><span>egressos acompanhados</span>
+        <em>A gente não perdeu o contato.</em></div>
+      <div><b id="m-sm">10,5</b><span>mediana em salários mínimos</span>
+        <em>Nenhum deles começou perto disso.</em></div>
+      <div><b id="m-empresas">204</b><span>empresas</span>
+        <em>É onde eles estão agora.</em></div>
     </div>
 
     <section>
