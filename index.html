@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ifesserra-lab — laboratório de dados do IFES Campus Serra</title>
-<meta name="description" content="Painéis abertos com os dados de extensão, pesquisa e editais do IFES Campus Serra: 201 ações, 757 extensionistas e a trajetória de quem passou por aqui." />
+<meta name="description" content="Portais abertos com os dados de extensão, pesquisa e editais do IFES Campus Serra: 201 ações, 757 extensionistas e a trajetória de quem passou por aqui." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23006b3f'/%3E%3Crect x='3' y='3' width='4' height='4' fill='%23fff'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -151,7 +151,7 @@
     <section class="hero" style="border-bottom:0;padding-bottom:40px">
       <p class="eyebrow">IFES · Campus Serra — laboratório de dados</p>
       <h1>Cada número aqui <span class="q">começou como uma pessoa.</span></h1>
-      <p class="lead">Aqui reunimos os painéis que mostram como o Campus Serra impacta a sociedade: <b>nas pessoas</b> que alcança, e <b>pelas pessoas</b> que se dedicam a isso.</p>
+      <p class="lead">Aqui reunimos os portais que mostram como o Campus Serra impacta a sociedade: <b>nas pessoas</b> que alcança, e <b>pelas pessoas</b> que se dedicam a isso.</p>
     </section>
 
     <!-- Números são o valor do último deploy e servem de fallback; a API do
@@ -160,7 +160,7 @@
       <div><b id="m-acoes">201</b><span>ações de extensão</span></div>
       <div><b id="m-ext">757</b><span>extensionistas</span></div>
       <div><b id="m-pub">4.845</b><span>pessoas alcançadas</span></div>
-      <div><b id="m-paineis">6</b><span>painéis no ar</span></div>
+      <div><b id="m-paineis">6</b><span>portais no ar</span></div>
     </div>
 
     <section>
@@ -174,7 +174,7 @@
         </a>
         <a href="/portal_edital/">
           <span class="n">02</span>
-          <div><h3>Painel de Editais</h3>
+          <div><h3>Portal de Editais</h3>
             <p>Editais de pesquisa, extensão e fomento reunidos e filtráveis num só lugar — coleta automatizada, sempre atualizada. Astro + Tailwind.</p></div>
           <span class="go">ifesserra-lab.github.io/portal_edital ↗</span>
         </a>
@@ -289,10 +289,15 @@
       return r.json();
     };
     try{
-      const [ix, painel] = await Promise.all([pega('index.json'), pega('painel.json')]);
+      const ix = await pega('index.json');
       põe('m-acoes', ix.acoes);
       põe('m-ext', ix.extensionistas);
-      põe('m-pub', painel?.indicadores?.alunos_unicos);
+      if(Number.isFinite(ix.alunos_unicos)){
+        põe('m-pub', ix.alunos_unicos);
+      }else{
+        // índice antigo, sem os totais de alcance: cai no agregado (~8 KB gzip)
+        põe('m-pub', (await pega('painel.json'))?.indicadores?.alunos_unicos);
+      }
     }catch(e){
       /* silencioso de propósito: o HTML já tem números válidos */
     }
