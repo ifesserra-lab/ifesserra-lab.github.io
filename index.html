@@ -59,11 +59,17 @@
   .actions a:hover .ar{transform:translateX(4px);}
 
   /* metrics ledger */
+  /* 6 métricas: 2 colunas no mobile, 3 no desktop — a última de cada linha
+     perde a borda direita, senão sobra um traço solto na margem. */
   .metrics{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line);}
-  @media(min-width:720px){.metrics{grid-template-columns:repeat(4,1fr);}}
-  .metrics div{padding:22px 0;border-bottom:1px solid var(--line);border-right:1px solid var(--line);padding-right:16px;}
-  .metrics div:nth-child(2n){padding-left:16px;}
-  @media(min-width:720px){.metrics div:last-child{border-right:0;}}
+  .metrics div{padding:22px 16px 22px 0;border-bottom:1px solid var(--line);border-right:1px solid var(--line);}
+  .metrics div:nth-child(2n){padding-left:16px;border-right:0;}
+  @media(min-width:720px){
+    .metrics{grid-template-columns:repeat(3,1fr);}
+    .metrics div:nth-child(2n){padding-left:0;border-right:1px solid var(--line);}
+    .metrics div:nth-child(3n+2){padding-left:16px;}
+    .metrics div:nth-child(3n){border-right:0;}
+  }
   .metrics b{font-family:var(--mono);font-size:26px;font-weight:600;display:block;letter-spacing:-.01em;}
   .metrics span{font-size:13px;color:var(--muted);}
 
@@ -118,10 +124,10 @@
   /* pops de cor — paleta IFES, com parcimônia */
   .lead b{color:var(--accent);font-weight:600;}
   .idx a:hover h3{color:var(--accent);}
-  .metrics div:nth-child(1) b{color:var(--green);}
-  .metrics div:nth-child(2) b{color:var(--blue);}
-  .metrics div:nth-child(3) b{color:var(--red);}
-  .metrics div:nth-child(4) b{color:var(--accent);}
+  .metrics div:nth-child(4n+1) b{color:var(--green);}
+  .metrics div:nth-child(4n+2) b{color:var(--blue);}
+  .metrics div:nth-child(4n+3) b{color:var(--red);}
+  .metrics div:nth-child(4n+4) b{color:var(--accent);}
   .idx a:nth-of-type(4n+1) .n{color:var(--green);}
   .idx a:nth-of-type(4n+2) .n{color:var(--blue);}
   .idx a:nth-of-type(4n+3) .n{color:var(--red);}
@@ -154,13 +160,15 @@
       <p class="lead">Aqui reunimos os portais que mostram como o Campus Serra impacta a sociedade: <b>nas pessoas</b> que alcança, e <b>pelas pessoas</b> que se dedicam a isso.</p>
     </section>
 
-    <!-- Números são o valor do último deploy e servem de fallback; a API do
-         painel SRC sobrescreve com o dado atual. Ver o <script> no fim. -->
+    <!-- Números são o valor do último deploy e servem de fallback; as APIs dos
+         painéis sobrescrevem com o dado atual. Ver o <script> no fim. -->
     <div class="metrics">
       <div><b id="m-acoes">201</b><span>ações de extensão</span></div>
       <div><b id="m-ext">757</b><span>extensionistas</span></div>
       <div><b id="m-pub">4.845</b><span>pessoas alcançadas</span></div>
-      <div><b id="m-paineis">6</b><span>portais no ar</span></div>
+      <div><b id="m-coorte">50</b><span>egressos acompanhados</span></div>
+      <div><b id="m-sm">10,5</b><span>mediana em salários mínimos</span></div>
+      <div><b id="m-empresas">204</b><span>empresas</span></div>
     </div>
 
     <section>
@@ -181,7 +189,7 @@
         <a href="/egressos/">
           <span class="n">03</span>
           <div><h3>Salários &amp; carreira de egressos</h3>
-            <p>Para onde vão os formados: faixa salarial e trajetória dos egressos, cruzando ensino, pesquisa e extensão. Visão executiva anonimizada.</p></div>
+            <p>Para onde vão os formados: <span id="e-coorte">50</span> egressos acompanhados em <span id="e-empresas">204</span> empresas, <span id="e-intl">13</span> delas fora do Brasil, com mediana de <span id="e-sm">10,5</span> salários mínimos hoje. Visão executiva anonimizada.</p></div>
           <span class="go">ifesserra-lab.github.io/egressos ↗</span>
         </a>
         <a href="/diretoria/">
@@ -269,38 +277,48 @@
 </script>
 
 <script>
-  /* Métricas de extensão puxadas da API estática do painel SRC (mesma origem,
-     sem CORS). Os números no HTML são o valor do último deploy e ficam como
-     fallback: se a API não responder, a página segue mostrando o último valor
-     conhecido em vez de um traço. */
-  (async function(){
-    const põe = (id, n) => {
+  /* Números vindos das APIs estáticas dos painéis (mesma origem, sem CORS).
+     Os valores escritos no HTML são o último deploy e ficam como fallback: se
+     uma API não responder, a página segue mostrando o último valor conhecido em
+     vez de um traço. As duas fontes são independentes de propósito — uma fora
+     do ar não impede a outra de atualizar. */
+  (function(){
+    const põe = (id, n, casas = 0) => {
       const el = document.getElementById(id);
-      if(el && Number.isFinite(n)) el.textContent = n.toLocaleString('pt-BR');
+      if(el && Number.isFinite(n)) el.textContent = n.toLocaleString('pt-BR',
+        {minimumFractionDigits: casas, maximumFractionDigits: casas});
     };
-
-    // painéis no ar: conta os cards de "Em produção", então incluir um card novo
-    // já atualiza a métrica.
-    põe('m-paineis', document.querySelectorAll('.idx a').length);
-
-    const pega = async p => {
-      const r = await fetch('/src/api/' + p);
-      if(!r.ok) throw new Error(p + ' → ' + r.status);
+    const pega = async u => {
+      const r = await fetch(u);
+      if(!r.ok) throw new Error(u + ' → ' + r.status);
       return r.json();
     };
-    try{
-      const ix = await pega('index.json');
-      põe('m-acoes', ix.acoes);
-      põe('m-ext', ix.extensionistas);
-      if(Number.isFinite(ix.alunos_unicos)){
-        põe('m-pub', ix.alunos_unicos);
-      }else{
-        // índice antigo, sem os totais de alcance: cai no agregado (~8 KB gzip)
-        põe('m-pub', (await pega('painel.json'))?.indicadores?.alunos_unicos);
-      }
-    }catch(e){
-      /* silencioso de propósito: o HTML já tem números válidos */
-    }
+
+    // extensão — painel SRC
+    (async () => {
+      try{
+        const ix = await pega('/src/api/index.json');
+        põe('m-acoes', ix.acoes);
+        põe('m-ext', ix.extensionistas);
+        if(Number.isFinite(ix.alunos_unicos)){
+          põe('m-pub', ix.alunos_unicos);
+        }else{
+          // índice antigo, sem os totais de alcance: cai no agregado (~8 KB gzip)
+          põe('m-pub', (await pega('/src/api/painel.json'))?.indicadores?.alunos_unicos);
+        }
+      }catch(e){ /* silencioso: o HTML já tem números válidos */ }
+    })();
+
+    // egressos — estudo de carreira (métricas + descrição do card 03)
+    (async () => {
+      try{
+        const eg = await pega('/egressos/api/index.json');
+        for(const id of ['m-coorte', 'e-coorte']) põe(id, eg.coorte);
+        for(const id of ['m-empresas', 'e-empresas']) põe(id, eg.empresas);
+        for(const id of ['m-sm', 'e-sm']) põe(id, eg.mediana_atual_em_salarios_minimos, 1);
+        põe('e-intl', eg.em_empregador_internacional);
+      }catch(e){ /* silencioso: o HTML já tem números válidos */ }
+    })();
   })();
 </script>
 </body>
