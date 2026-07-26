@@ -51,22 +51,6 @@
   .hero h1 .q{color:var(--green);display:block;}
   .hero .lead{margin:26px 0 0;font-size:clamp(16px,2.1vw,20px);color:var(--ink-2);max-width:60ch;line-height:1.55;}
 
-  /* lead navegável: slides empilhados no mesmo grid-area — a altura fica a da
-     frase mais alta, então trocar de frase não empurra o resto da página.
-     Não gira sozinho: só troca por clique nos traços/setas ou por teclado. */
-  .leads{display:grid;margin-top:26px;}
-  .leads .lead{grid-area:1/1;margin:0;opacity:0;transition:opacity .35s ease;}
-  .leads:not([data-js]) .lead:first-child{opacity:1;}  /* sem JS: mostra a primeira */
-  .leads[data-js] .lead[data-on]{opacity:1;}
-  .leadnav{display:flex;align-items:center;gap:16px;margin-top:20px;}
-  .dots{display:flex;gap:8px;}
-  .dots button{width:24px;height:3px;padding:0;border:0;background:var(--line-2);cursor:pointer;transition:background .2s;}
-  .dots button[aria-current="true"]{background:var(--accent);}
-  .dots button:hover{background:var(--muted);}
-  .arrows{display:flex;gap:4px;}
-  .arrows button{font-family:var(--mono);font-size:14px;line-height:1;padding:4px 7px;border:0;
-    background:none;color:var(--muted);cursor:pointer;transition:color .2s;}
-  .arrows button:hover{color:var(--accent);}
   .actions{display:flex;flex-wrap:wrap;gap:26px;margin-top:34px;}
   .actions a{font-family:var(--mono);font-size:14px;font-weight:500;color:var(--ink);
     border-bottom:2px solid var(--accent);padding-bottom:3px;transition:gap .15s;display:inline-flex;gap:7px;}
@@ -167,15 +151,7 @@
     <section class="hero" style="border-bottom:0;padding-bottom:40px">
       <p class="eyebrow">IFES · Campus Serra — laboratório de dados</p>
       <h1>Cada número aqui <span class="q">começou como uma pessoa.</span></h1>
-      <div class="leads" role="group" aria-label="o que os dados mostram">
-        <p class="lead">Começa com uma bolsa de iniciação e um projeto de extensão. Anos depois, aparece no salário: entre os egressos que acompanhamos, a mediana hoje é de <b>quase 10 salários mínimos</b>, com crescimento de <b>8% ao ano</b>. Reunimos essas trajetórias — <b>201 ações</b>, <b>757 extensionistas</b>, <b>cerca de 50 egressos</b> — em painéis abertos a qualquer pessoa.</p>
-        <p class="lead"><b>757 pessoas</b> já fizeram extensão no Campus Serra. <b>78% de quem coordena pesquisa</b> também está lá. E entre os egressos que passaram por essa base, a mediana salarial hoje é de <b>quase 10 salários mínimos</b>. São esses caminhos que reunimos e publicamos, em painéis que qualquer pessoa consulta.</p>
-        <p class="lead"><b>757 extensionistas</b>, <b>201 ações de extensão</b>, <b>cerca de 50 egressos</b> acompanhados — e uma mediana salarial de <b>quase 10 salários mínimos</b> entre quem começou com bolsa aqui. Tudo em painéis abertos, sem nenhum dado pessoal de aluno.</p>
-        <p class="lead">Aqui, pesquisa e extensão andam juntas: <b>78% de quem coordena pesquisa</b> no Campus Serra também faz extensão, mantendo o mesmo impacto científico. São <b>201 ações</b> e <b>757 extensionistas</b> — e, entre os egressos dessa base, uma mediana salarial de <b>quase 10 salários mínimos</b> hoje.</p>
-        <p class="lead">Ensino, pesquisa e extensão mudam a vida de quem participa? Acompanhamos <b>cerca de 50 egressos</b> que começaram com bolsa no Campus Serra: a mediana salarial chegou a <b>quase 10 salários mínimos</b>. Ao lado de <b>201 ações</b> e <b>757 extensionistas</b>, esses caminhos ficam abertos em painéis públicos.</p>
-        <p class="lead">Uma bolsa de <b>R$ 813</b>. Treze anos depois, <b>R$ 14.373</b> — o maior crescimento da base que acompanhamos, <b>17,7% ao ano</b>. É um de cerca de 50 caminhos que seguimos, ao lado de <b>201 ações</b> e <b>757 extensionistas</b> de extensão.</p>
-      </div>
-      <div class="leadnav"></div>
+      <p class="lead">Aqui reunimos os painéis que mostram como o Campus Serra impacta a sociedade: <b>nas pessoas</b> que alcança, e <b>pelas pessoas</b> que se dedicam a isso.</p>
     </section>
 
     <div class="metrics">
@@ -290,59 +266,5 @@
   load();
 </script>
 
-<script>
-  /* lead navegável. Não gira sozinho: a frase só troca por ação de quem lê —
-     clique nos traços, nas setas, ou ← / → com o foco dentro do bloco. */
-  (function(){
-    const box = document.querySelector('.leads');
-    const nav = document.querySelector('.leadnav');
-    if(!box || !nav) return;
-    const slides = [...box.querySelectorAll('.lead')];
-    if(slides.length < 2) return;
-
-    let i = 0;
-
-    const dots = document.createElement('div');
-    dots.className = 'dots';
-    const btns = slides.map((_, n) => {
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.setAttribute('aria-label', `frase ${n+1} de ${slides.length}`);
-      b.addEventListener('click', () => show(n));
-      dots.appendChild(b);
-      return b;
-    });
-
-    const arrows = document.createElement('div');
-    arrows.className = 'arrows';
-    for(const [glifo, passo, rotulo] of [['←', -1, 'frase anterior'], ['→', 1, 'próxima frase']]){
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.textContent = glifo;
-      b.setAttribute('aria-label', rotulo);
-      b.addEventListener('click', () => show(i + passo));
-      arrows.appendChild(b);
-    }
-
-    nav.append(dots, arrows);
-
-    function show(n){
-      i = (n + slides.length) % slides.length;
-      slides.forEach((s, k) => {
-        s.toggleAttribute('data-on', k === i);
-        s.setAttribute('aria-hidden', String(k !== i));
-      });
-      btns.forEach((b, k) => b.setAttribute('aria-current', String(k === i)));
-    }
-
-    nav.addEventListener('keydown', e => {
-      if(e.key === 'ArrowLeft'){ e.preventDefault(); show(i - 1); }
-      if(e.key === 'ArrowRight'){ e.preventDefault(); show(i + 1); }
-    });
-
-    box.setAttribute('data-js','');
-    show(0);
-  })();
-</script>
 </body>
 </html>
