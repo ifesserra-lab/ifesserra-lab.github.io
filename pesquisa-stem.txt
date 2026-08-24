@@ -1,0 +1,215 @@
+# Dimensão da pesquisa vinculada às áreas STEM — Ifes Campus Serra
+
+**Relatório institucional detalhado — itens I a IV do edital**
+
+- Campus: Serra (registro único em `campuses_canonical`: id 6 — todos os dados referem-se exclusivamente ao campus Serra)
+- Dados extraídos em: 24/08/2026
+- Portal Horizon atualizado em: 18/05/2026 (36 datasets, licença CC BY 4.0)
+- Fontes: Portal Horizon de Dados Abertos (ifesserra-lab.github.io/horizon_dashboard), relatório "Pesquisa na Formação — IFES Serra 2020.1–2025.2" (preliminar), base de ações de extensão e ensino do campus (201 ações, 2013–2026), portais FAPES e FACTO
+
+> Trecho do edital: "[A] dimensão da pesquisa vinculada às áreas STEM deverá ser preenchida pelo campus proponente, considerando: I – linhas de pesquisa direta ou transversalmente relacionadas às áreas STEM; II – mestres e doutores envolvidos com pesquisas nas áreas STEM; III – participação em programas e/ou redes de pesquisa relacionadas às áreas STEM; e IV – projetos relacionados às áreas STEM e extensão com financiamentos vigentes."
+
+## Números-chave
+
+| Indicador | Valor |
+|---|---|
+| Grupos de pesquisa CNPq diretamente STEM | 12 de 18 cadastrados |
+| Iniciativas de pesquisa ativas | 461 (~216 diretamente STEM) |
+| Professores pesquisadores / alunos / externos | 2.472 / 6.519 / 849 |
+| Doutores / mestres entre professores (registrados) | 98 / 35 (piso — ver ressalvas) |
+| Captação FAPES (histórico) | R$ 48,5 mi · 99 projetos · 729 bolsas |
+| Captação FACTO (coordenados pelo campus) | R$ 20,4 mi · 38 projetos |
+| Formandos da graduação com iniciação científica | 78,4% (240 de 306) |
+
+---
+
+## Item I — Linhas de pesquisa direta ou transversalmente relacionadas às áreas STEM
+
+O campus Serra mantém **18 grupos de pesquisa** cadastrados no Diretório de Grupos do CNPq (17 distintos — o LEDS aparece duplicado na base). **Doze são diretamente vinculados às áreas STEM** (computação, engenharias, física, matemática aplicada), **dois atuam transversalmente** (educação com tecnologia; gestão da inovação) e três concentram-se em humanidades.
+
+### Grupos de pesquisa CNPq
+
+| Sigla | Grupo | Liderança | Membros | Vínculo STEM | Áreas principais |
+|---|---|---|---|---|---|
+| GAIn | Grupo de Automação Industrial | Marco A. S. L. Cuadros · Gustavo Maia de Almeida | 16 | STEM núcleo | Eng. Elétrica, automação, inspeção industrial |
+| NERA | Núcleo de Estudos em Robótica e Automação | Richard J. M. Godinez Tello · Marta T. C. F. Mendes | 124 | STEM núcleo | Robótica, visão computacional, robótica educacional |
+| LAICSI | Lab. de Inteligência Computacional e Sistemas de Informação | Hilário T. A. de Oliveira · Bruno C. Coutinho | 60 | STEM núcleo | IA, visão computacional, computação afetiva |
+| Nu(TeC)² | Núcleo de Estudos em Teoria da Computação | Jefferson O. Andrade · Karin Satie Komati | 58 | STEM núcleo | Ciência da Computação, blockchain, otimização |
+| GAMA | Grupo de Aprendizado de Máquina e Automação | Luiz Alberto Pinto · Daniel Cruz Cavalieri | 22 | STEM núcleo | Aprendizado de máquina, kits didáticos, ensino de engenharia |
+| GERA | Grupo de Energias Renováveis para Automação | Flavio B. Braz da Silva · Danilo de Paula e Silva | 21 | STEM núcleo | Energia renovável, meteorologia, telemetria |
+| GPRO | Grupo de Pesquisa em Redes e Otimização | Leandro C. Resendo · Cristina K. Dominicini | 19 | STEM núcleo | Redes, otimização, prédios inteligentes |
+| GETEC | Grupo de Estudo em Tecnologia, Ensino e Cultura Maker | Rosiane Ribeiro Rocha · Gabriel Tozatto Zago | 17 | STEM núcleo | Cultura maker, IA, processamento de imagens |
+| LEDS | Ontology, Data Science and Integration Research Group | Victorio Albani de Carvalho | 11 | STEM núcleo | Ontologias, ciência de dados, engenharia de software |
+| NEEF | Núcleo de Estudos em Ensino de Física | Leandro Melo de Sá · Rosilene de Sá Ribeiro | 11 | STEM núcleo | Física, robótica, experimentos didáticos |
+| NESC | Núcleo de Estudos em Sistemas Ciberfísicos | Flávio Garcia Pereira · Wagner Teixeira da Costa | 8 | STEM núcleo | IoT, sistemas de controle, análise de dados |
+| GAEE | Grupo de Apoio ao Ensino de Eletrônica | Vinícius Secchin de Melo | 1 | STEM núcleo | Eng. Elétrica, sistemas analógicos e digitais |
+| LEMATEC | Lab. de Metodologias Ativas e Tecnologias Sociais | Bruno Ramos Gonzaga | 11 | Transversal | Educação, formação de professores, tecnologias sociais |
+| NUGEIN | Núcleo de Gestão, Empreendedorismo e Inovação | Adelson Pereira do Nascimento | 9 | Transversal | Administração, inovação, inteligência competitiva |
+| ALMEC | Audiovisual, literatura, música, educação e cultura | Adrianna Machado Meneguelli | 4 | Não STEM | Educação, comunicação, estudos comparatistas |
+| — | Educação, trabalho, cultura e organizações | Maikon C. Silva Scaldaferro | 17 | Não STEM | Filosofia, estudos interdisciplinares |
+| ECES | História das interações políticas, culturais, econômicas e sociais | Amarildo Mendes Lemos | 4 | Não STEM | História, memória, políticas públicas |
+
+Espelhos CNPq (dgp.cnpq.br/dgp/espelhogrupo/): GAIn 0809353261155112 · NERA 0885492618252118 · LAICSI 5492811131024993 · Nu(TeC)² 4201359100034312 · GAMA 9115112132091239 · GERA 2498090283444757 · GPRO 2060704831588381 · GETEC 3808551130622600 · LEDS 1685399817439632 · NEEF 8963769597678950 · NESC 7313036179451336 · GAEE 3708150385788812 · LEMATEC 5268097066450891 · NUGEIN 5708458833286557
+
+### Linhas temáticas em atividade (derivadas das 461 iniciativas ativas)
+
+- **Inteligência artificial aplicada à indústria** — monitoramento de correias transportadoras, aciaria LD, laminadores de tiras a quente, eficiência energética do gás siderúrgico
+- **IA aplicada à saúde** — análise de raio-X de tórax, classificação de OCT com IA interpretável, pré-diagnóstico de câncer de mama, diagnóstico cardiovascular explicável, patologias da coluna vertebral
+- **Robótica** — robôs de resgate e inspeção com sensoriamento visual e térmico, kits educacionais RoboTech 4.0, robótica educacional e inclusiva
+- **Energia e sustentabilidade** — estação meteorológica para planejamento energético, microrredes, mobilidade elétrica (eletroposto), gestão energética na siderurgia
+- **Redes e cidades inteligentes** — Cidades e Prédios Inteligentes 2.2, protocolo OPC UA para IoT
+- **Ontologias, ciência de dados e engenharia de software** — integração de dados, blockchain para rastreabilidade mineral (Mina Digital de Rochas Ornamentais)
+- **Educação em engenharia e cultura maker** — kits didáticos, jogos educacionais, prototipagem CAD/CAE no ensino de física e engenharia
+
+Essas linhas são ancoradas pelos cursos do campus — **Bacharelado em Sistemas de Informação**, **Engenharia de Controle e Automação** e o **Mestrado em Computação Aplicada (PPComp)** — todos integralmente STEM.
+
+---
+
+## Item II — Mestres e doutores envolvidos com pesquisas nas áreas STEM
+
+A base completa de pessoas do Portal Horizon (`researchers_canonical`) registra **10.089 pessoas** nas redes de pesquisa do campus, separadas por vínculo:
+
+| Vínculo | Pessoas | Doutores | Mestres | Vinculados a grupos STEM |
+|---|---|---|---|---|
+| **Professores/servidores** (classificação `researcher`, `was_staff`) | 2.472 | 98 | 35 | 184 (57 doutores, 12 mestres registrados) |
+| **Alunos** (classificação `student`) | 6.519 | 0 | 1 | 373 |
+| **Colaboradores externos/visitantes** (`outside_ifes`) | 849 | 0 | 6 | 0 |
+| **Sem classificação** (auditoria pendente) | 249 | 0 | 5 | 0 |
+| **Total** | **10.089** | **98** | **47** | **557** |
+
+Dos 2.472 professores, **186 também foram alunos do campus** (ex-alunos que hoje pesquisam como servidores). Titulação refere-se ao campo `academic_education` (preenchimento parcial — ver ressalvas); vínculo a grupo STEM é heurístico pelo nome do grupo.
+
+| Indicador | Valor |
+|---|---|
+| Orientadores doutores no PPComp | 17 |
+
+### Envolvimento efetivo com pesquisa STEM
+
+- **Pós-graduação:** o PPComp conta com **17 docentes orientadores** (doutores), que já conduziram **269 discentes**, com **83 defesas** concluídas
+- **Iniciação científica:** **22 docentes** orientaram IC de egressos da graduação; **78,4% dos formandos** (240 de 306) passaram por pesquisa durante o curso
+- **Captação FAPES:** **41 coordenadores** distintos captaram fomento (média de 2,4 projetos cada)
+- **Projetos FACTO:** **47 professores** do campus participam de projetos geridos pela fundação de apoio, **25 como coordenadores**
+- **Pipeline interno:** 37 egressos da graduação ingressaram no próprio mestrado do campus
+
+> **Ressalva:** o campo de titulação está preenchido para apenas 133 dos 2.472 registros — os números de doutores e mestres são **piso, não teto**. Para o valor oficial completo, cruzar com SIAPE/PDI ou extração Lattes do quadro docente.
+
+---
+
+## Item III — Participação em programas e/ou redes de pesquisa relacionadas às áreas STEM
+
+| Programa / rede | Natureza | Descrição |
+|---|---|---|
+| **PPComp — Mestrado em Computação Aplicada** | Pós-graduação stricto sensu | Programa próprio do campus: 269 discentes, 83 defesas, 17 orientadores; 37 egressos da graduação ingressaram no programa |
+| **Programa STEM–IFES** | Programa institucional | Registrado no portal FACTO (projeto 177, natureza Ensino), coord. Adelson Pereira do Nascimento |
+| **PCTec InovaSerra** | Ambiente de inovação · FAPES · vigente | Parque Científico e Tecnológico do InovaSerra — ação de extensão com fomento FAPES iniciada em 2025 |
+| **ArcelorMittal Tubarão** | Parceria com setor produtivo | Imersão STEM em automação de processos (RPA & Office 365, 2 etapas, 11 certificados) e múltiplos projetos ativos em siderurgia: aciaria LD, laminadores, eficiência energética do gás |
+| **Academia Cisco** | Rede de formação tecnológica | Levada às escolas municipais da Serra por ação de extensão do campus (2018) |
+| **LEDS · LabMaker / IFMaker Serra** | Laboratórios em rede | Laboratório de Extensão em Desenvolvimento de Soluções (múltiplas edições desde 2016) e espaço maker multiusuário de apoio a ensino, pesquisa e extensão |
+| **18 grupos CNPq** | Redes de pesquisa nacionais | Cada grupo com espelho público no Diretório de Grupos do CNPq (ver item I) |
+
+### Rede de colaboração científica registrada
+
+- Grafo de colaboração global: **10.089 pessoas** e 11.843 conexões por iniciativas, artigos e orientações
+- **849 colaboradores externos** ao Ifes aparecem nas redes do campus
+- **2.298 publicações** catalogadas com ano, tipo, DOI e veículo
+
+---
+
+## Item IV — Projetos relacionados às áreas STEM e extensão com financiamentos vigentes
+
+### Pesquisa — Portal Horizon
+
+O portal registra **4.216 projetos de pesquisa** no histórico do campus, dos quais **461 estão ativos ou em andamento** (452 com vigência formal além de agosto de 2026). Por classificação heurística de título, áreas de conhecimento e grupo, **cerca de 216 dos ativos são diretamente STEM**.
+
+Amostra de projetos ativos vinculados a grupos STEM:
+
+| Projeto | Vigência | Grupo |
+|---|---|---|
+| Uso de IA para o monitoramento do estado de correias transportadoras | 2023–2028 | GAIn |
+| Sistema de aquisição de dados e aprendizado de máquina em planta piloto de aciaria LD | 2025–2028 | GAIn |
+| Robótica e tecnologia, kits educacionais — RoboTech 4.0 | 2023–2027 | GAIn |
+| Cidades e Prédios Inteligentes 2.2 | 2022–2027 | GPRO |
+| Técnicas de IA para melhoria de processos em laminadores de tiras a quente | 2025–2026 | GPRO |
+| Estação meteorológica automática para estudos de geração de energia | 2022–2029 | GERA |
+| Laboratório Espaço Energia: mobilidade elétrica com implantação de eletroposto | 2023–2026 | GERA |
+| Transformação digital e gestão energética: microrredes para um futuro sustentável | 2025–2028 | GERA |
+| Mina Digital de Rochas Ornamentais: integração da lavra à comercialização com blockchain | 2022–2026 | Nu(TeC)² |
+| Otimização da eficiência energética do uso de gás na siderurgia usando neuro-evolução | 2022–2026 | Nu(TeC)² |
+| VibroLearn: framework para diagnóstico de falhas em máquinas industriais | 2025–2027 | LAICSI |
+| ChatRad: sistema de conversação multimodal para análise automatizada de radiografias | 2025–2026 | LAICSI |
+| Classificação de imagens de OCT com IA interpretável | 2024–2026 | GETEC |
+| IA explicável para diagnóstico cardiovascular | 2025–2028 | GETEC |
+| VitaBot: robô de resgate e inspeção com sensoriamento visual e térmico | 2025–2026 | NERA |
+| VeriScan: inteligência computacional aplicada à detecção de imagens manipuladas | 2025–2026 | NERA |
+| Kits didáticos para o ensino de Engenharia de Controle e Automação | 2025–2026 | GAMA |
+| Protocolo OPC UA como camada de comunicação para dispositivos IoT | 2025–2026 | GAMA |
+
+### Captação de fomento
+
+| Fonte | Projetos | Valor | Situação |
+|---|---|---|---|
+| **FAPES** (histórico do campus) | 99 | R$ 48,5 mi | 62 em andamento (R$ 46,1 mi) — 27 no prazo (R$ 28,5 mi) e 35 com prazo vencido a regularizar (R$ 17,6 mi); 729 bolsas contratadas (R$ 26,4 mi, 54% do orçamento); ticket médio R$ 490 mil; 41 coordenadores |
+| **FACTO** (fundação de apoio) | 60 | R$ 20,4 mi* | 60 projetos com participação de docentes da Serra; 38 coordenados pelo campus (*valor atribuível ao campus); 28 de PD&I; pico de captação em 2024–2025 |
+
+### Extensão — campus Serra (109 ações registradas, 2013–2026)
+
+- **58 das 109 ações (53%)** pertencem às grandes áreas Engenharias e Ciências Exatas e da Terra; área temática dominante: **Tecnologia e Produção (54 ações)**
+- Fomento histórico: PAEX-Ifes (35), FAPES (3), PRONATEC (3), Mulheres Mil (2), SETEC (1)
+- **12 ações de extensão vigentes** em 2025–2026
+
+### Alcance da extensão e ensino — Portal SRC (dados abertos)
+
+O portal SRC do campus (ifesserra-lab.github.io/src) consolida as **201 iniciativas de extensão e ensino** com público atendido, participações e status de atividade (referência 2026): **7.938 pessoas atendidas**, **10.245 participações** e **2.307 integrantes de equipe**, com taxa de certificação de 84,7%.
+
+Nichos temáticos STEM concentram o maior alcance:
+
+| Nicho temático (SRC) | Iniciativas | Público atendido | Ativas | Público das ativas |
+|---|---|---|---|---|
+| Robótica e cultura maker | 26 | 2.823 | 7 | 2.028 |
+| Software, dados e sistemas | 16 | 189 | 2 | 25 |
+| Ciência e divulgação | 13 | 157 | 2 | 48 |
+| **Subtotal STEM** | **55** | **3.169** | **11** | **2.101** |
+| Demais nichos (inclusão, cultura, saúde, empreendedorismo…) | 146 | 4.769 | 39 | 1.586 |
+
+- O nicho **"Robótica e cultura maker" é o de maior público do campus** (2.823 atendimentos — 36% do total), puxado pelo **LAMPEX** (1.290 pessoas, PAEX-Ifes) e pelo **LabMaker Serra** (490 pessoas), ambos ativos;
+- **Jornada dos formados:** dos 306 egressos da graduação, **190 (62%) participaram de extensão** durante o curso — mediana de 2 anos entre o ingresso e a primeira ação de extensão;
+- Ressalva do próprio portal: o público conta registros de inscrição/certificação — plataformas digitais e serviços estaduais (ex.: ConectaFapes) aparecem subestimados.
+
+Extensão STEM com financiamento vigente:
+
+| Ação | Fomento | Início |
+|---|---|---|
+| Parque Científico e Tecnológico do InovaSerra — PCTec InovaSerra | FAPES | 2025 |
+| Jovens Inventores: o poder da tecnologia maker no desenvolvimento social | FAPES | 2025 |
+| LabMaker 4.0: capacitando professores para a cultura maker e tecnologias da Indústria 4.0 | PAEX-IFES | 2025 |
+| Mulheres Mil — Eletricista Instalador Predial em Baixa Tensão | SETEC | 2026 |
+
+Iniciativas explicitamente rotuladas "STEM" no histórico:
+
+1. **STEM — Experiência de Imersão** (ArcelorMittal, extensão, 2022–2024): 2 etapas, 11 participantes certificados, coord. Adelson Pereira do Nascimento
+2. **Oficinas do Mundo Maker** (ensino, 2023): laboratório maker voltado às disciplinas STEM, coord. Rosiane Ribeiro Rocha
+3. **Programa STEM–IFES** (FACTO, ensino), coord. Adelson Pereira do Nascimento
+
+---
+
+## Ressalvas metodológicas
+
+1. **Titulação é piso:** formação acadêmica preenchida em apenas 133 de 2.472 registros de pesquisadores — os totais reais de mestres e doutores são maiores
+2. **Classificação STEM heurística:** os ~216 projetos ativos STEM foram classificados por palavras-chave em título, áreas e grupo — recomenda-se validação amostral
+3. **Prazo vencido:** 35 dos 62 projetos FAPES "em andamento" têm data-fim já passada sem encerramento no sistema; se o edital exigir vigência estrita, usar 27 projetos (R$ 28,5 mi)
+4. **Vinculação a grupos incompleta:** 391 das 461 iniciativas ativas não têm grupo de pesquisa registrado na base — a distribuição por grupo subestima a atividade
+5. **Relatório-fonte preliminar:** o estudo "Pesquisa na Formação" está marcado como experimental pelos autores
+6. **Linhas formais do PPComp:** confirmar a nomenclatura oficial das linhas de pesquisa no site do programa antes da submissão
+7. **Público subestimado (SRC):** o indicador de público conta registros de inscrição/certificação — plataformas digitais e serviços estaduais (ex.: ConectaFapes) aparecem subestimados
+
+---
+
+## Resumo — resposta à Seção A do edital
+
+**I — Linhas de pesquisa.** O Campus Serra atua majoritariamente em áreas STEM: 12 dos seus 18 grupos de pesquisa cadastrados no CNPq são diretamente vinculados a essas áreas — automação industrial (GAIn), robótica e automação (NERA), inteligência computacional e sistemas de informação (LAICSI), teoria da computação (Nu(TeC)²), aprendizado de máquina (GAMA), energias renováveis (GERA), redes e otimização (GPRO), tecnologia e cultura maker (GETEC), ontologias e ciência de dados (LEDS), ensino de física (NEEF), sistemas ciberfísicos (NESC) e eletrônica (GAEE) — além de dois grupos transversais (LEMATEC e NUGEIN). As linhas em atividade cobrem IA aplicada à indústria e à saúde, robótica, energia, redes e cidades inteligentes, ciência de dados e educação em engenharia, ancoradas pelos cursos de Sistemas de Informação, Engenharia de Controle e Automação e pelo Mestrado em Computação Aplicada (PPComp).
+
+**II — Mestres e doutores.** Entre os 2.472 professores/servidores com atuação registrada em pesquisa, constam 98 doutores e 35 mestres (valores-piso), dos quais 184 vinculados a grupos STEM (57 doutores e 12 mestres registrados). O PPComp conta com 17 docentes orientadores doutores (269 discentes, 83 defesas); 22 docentes orientaram IC de egressos, 41 captaram fomento FAPES e 47 participam de projetos FACTO. A pesquisa alcança 78,4% dos formandos, e 373 alunos integram grupos STEM.
+
+**III — Programas e redes.** O campus mantém o PPComp, 18 grupos CNPq com espelho público, o Programa STEM–IFES, o PCTec InovaSerra (FAPES, vigente), parcerias de P&D com o setor produtivo (ArcelorMittal Tubarão), a Academia Cisco em escolas municipais e laboratórios em rede (LEDS, LabMaker/IFMaker Serra e LAMPEX). A rede de colaboração científica registrada envolve 10.089 pessoas, 849 colaboradores externos e 2.298 publicações.
+
+**IV — Projetos e extensão com financiamento vigente.** 461 iniciativas de pesquisa ativas (~216 diretamente STEM). FAPES: 99 projetos, R$ 48,5 milhões, 729 bolsas, 62 em andamento (R$ 46,1 milhões). FACTO: 60 projetos com participação do campus, 38 coordenados (R$ 20,4 milhões), 28 de PD&I. Extensão: nichos STEM somam 55 iniciativas e 3.169 pessoas atendidas — Robótica e cultura maker é o nicho de maior público do campus — e, entre as vigentes 2025–2026 com fomento: PCTec InovaSerra (FAPES), Jovens Inventores (FAPES), LabMaker 4.0 (PAEX-Ifes) e Mulheres Mil — Eletricista (SETEC).

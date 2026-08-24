@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pesquisa STEM — IFES Campus Serra</title>
+<meta name="description" content="Dimensão da pesquisa vinculada às áreas STEM no IFES Campus Serra: grupos CNPq, titulação, redes, projetos vigentes e alcance da extensão — Horizon + SRC." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23006b3f'/%3E%3Crect x='3' y='3' width='4' height='4' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --green:#009640; --green-dark:#006b3f; --yellow:#fdb913; --red:#e30613; --blue:#0072bc;
+    --paper:#f5f7f5; --ink:#1a2b22; --ink-2:#5a6b61; --muted:#8a9990;
+    --line:#e0e6e1; --line-2:#d1dad4; --field:#eaefea; --accent:var(--green-dark);
+    --warn-bg:#fff8e6; --warn-line:#ead79b;
+    --sans:"IBM Plex Sans",ui-sans-serif,system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace;
+    --wrap:1080px;
+  }
+  @media (prefers-color-scheme:dark){:root{
+    --paper:#0e1512; --ink:#eef2ee; --ink-2:#aebab1; --muted:#78867e;
+    --line:#1e2a24; --line-2:#29352e; --field:#141c18; --accent:#37b46e;
+    --warn-bg:#241f10; --warn-line:#5c4d1e;
+  }}
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+    font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;}
+  ::selection{background:var(--accent);color:#fff;}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px;}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:500;}
+  header{border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;
+    background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(8px);}
+  header::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--green) 0 25%,var(--yellow) 25% 50%,var(--red) 50% 75%,var(--blue) 75% 100%);}
+  .nav{display:flex;align-items:center;gap:22px;height:60px;}
+  .mark{font-family:var(--mono);font-weight:600;font-size:15px;margin-right:auto;display:flex;align-items:center;gap:9px;}
+  .mark .sq{width:11px;height:11px;background:var(--green-dark);}
+  .nav a.lnk{font-family:var(--mono);font-size:13px;color:var(--ink-2);}
+  .nav a.lnk:hover{color:var(--ink);}
+  .nav a.lnk[data-cur]{color:var(--ink);}
+
+  .hero{padding:64px 0 40px;border-bottom:1px solid var(--line);}
+  .hero h1{font-size:clamp(30px,5vw,52px);line-height:1.06;letter-spacing:-.025em;font-weight:700;margin:16px 0 0;max-width:26ch;text-wrap:balance;}
+  .hero .lead{margin:22px 0 0;font-size:clamp(15px,2vw,18px);color:var(--ink-2);max-width:62ch;line-height:1.55;}
+  .hero blockquote{margin:24px 0 0;padding:0 0 0 16px;border-left:3px solid var(--line-2);
+    font-size:14px;color:var(--muted);max-width:75ch;line-height:1.55;}
+  .baixar{display:inline-flex;align-items:center;gap:8px;margin-top:28px;font-family:var(--mono);font-size:14px;font-weight:500;
+    color:var(--ink);border-bottom:2px solid var(--accent);padding-bottom:3px;}
+  .baixar:hover{color:var(--accent);}
+
+  .metrics{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line);margin-top:36px;}
+  .metrics div{padding:20px 16px 20px 0;border-bottom:1px solid var(--line);border-right:1px solid var(--line);}
+  .metrics div:nth-child(2n){padding-left:16px;border-right:0;}
+  @media(min-width:720px){
+    .metrics{grid-template-columns:repeat(3,1fr);}
+    .metrics div:nth-child(2n){padding-left:0;border-right:1px solid var(--line);}
+    .metrics div:nth-child(3n+2){padding-left:16px;}
+    .metrics div:nth-child(3n){border-right:0;}
+  }
+  .metrics b{font-family:var(--mono);font-size:24px;font-weight:600;display:block;letter-spacing:-.01em;}
+  .metrics span{font-size:13px;color:var(--muted);display:block;margin-top:3px;line-height:1.4;}
+
+  section{padding:48px 0;border-bottom:1px solid var(--line);}
+  section h2{font-size:clamp(21px,3vw,27px);letter-spacing:-.015em;margin:10px 0 6px;line-height:1.2;text-wrap:balance;}
+  section .sub{color:var(--ink-2);font-size:14.5px;margin:0 0 24px;max-width:66ch;}
+  h3{font-size:16px;margin:30px 0 10px;letter-spacing:-.005em;}
+  p{max-width:72ch;margin:0 0 14px;}
+  ul{max-width:72ch;margin:0 0 14px;padding-left:22px;}
+  li{margin-bottom:6px;}
+  .roll{overflow-x:auto;border:1px solid var(--line);margin:14px 0 22px;}
+  table{border-collapse:collapse;width:100%;font-size:13.5px;}
+  th{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;color:var(--muted);
+    text-align:left;padding:10px 12px;border-bottom:1px solid var(--line-2);white-space:nowrap;background:var(--field);}
+  td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  td.n,th.n{text-align:right;font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;}
+  td.m{font-family:var(--mono);font-size:12px;color:var(--ink-2);white-space:nowrap;}
+  td a{border-bottom:1px solid var(--line-2);}
+  td a:hover{border-bottom-color:var(--accent);color:var(--accent);}
+  .chip{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.03em;padding:2px 8px;white-space:nowrap;}
+  .chip.stem{background:color-mix(in srgb,var(--green) 14%,transparent);color:var(--accent);}
+  .chip.trans{background:color-mix(in srgb,var(--blue) 13%,transparent);color:var(--blue);}
+  .chip.nao{background:var(--field);color:var(--muted);}
+  .ressalva{background:var(--warn-bg);border:1px solid var(--warn-line);padding:14px 18px;font-size:14px;max-width:78ch;margin:18px 0;}
+  .fonte-tag{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;}
+  footer{padding:40px 0 64px;}
+  footer .fr{display:flex;flex-wrap:wrap;gap:8px 22px;font-family:var(--mono);font-size:13px;color:var(--muted);}
+  footer a{color:var(--ink-2);border-bottom:1px solid transparent;}
+  footer a:hover{color:var(--ink);border-bottom-color:var(--accent);}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="mark" href="/"><span class="sq"></span>ifesserra-lab</a>
+  <a class="lnk" href="/">início</a>
+  <a class="lnk" href="/src/">painel</a>
+  <a class="lnk" href="/horizon_dashboard/">horizon</a>
+  <a class="lnk" href="/pesquisa-stem.html" data-cur>pesquisa stem</a>
+</div></header>
+
+<main class="wrap">
+<section class="hero" style="border-bottom:0;padding-bottom:32px">
+  <span class="eyebrow">relatório institucional · horizon + src · 24/08/2026</span>
+  <h1>A dimensão da pesquisa STEM no Campus Serra</h1>
+  <p class="lead">Grupos de pesquisa, titulação, redes, projetos com financiamento vigente e o alcance da extensão — consolidados dos portais abertos <a href="/horizon_dashboard/" style="border-bottom:1px solid var(--line-2)">Horizon</a> (pesquisa) e <a href="/src/" style="border-bottom:1px solid var(--line-2)">SRC</a> (extensão e ensino), organizados nos quatro itens que o edital pede.</p>
+  <blockquote>"…considerando: I – linhas de pesquisa direta ou transversalmente relacionadas às áreas STEM; II – mestres e doutores envolvidos com pesquisas nas áreas STEM; III – participação em programas e/ou redes de pesquisa relacionadas às áreas STEM; e IV – projetos relacionados às áreas STEM e extensão com financiamentos vigentes."</blockquote>
+  <a class="baixar" href="pesquisa-stem.txt" download>⬇ baixar relatório completo (.txt)</a>
+
+  <div class="metrics">
+    <div><b>12 / 18</b><span>grupos de pesquisa CNPq diretamente STEM</span></div>
+    <div><b>461</b><span>iniciativas de pesquisa ativas — ~216 diretamente STEM</span></div>
+    <div><b>98 + 35</b><span>doutores e mestres entre professores (registrados — piso)</span></div>
+    <div><b>R$ 48,5 mi</b><span>captados na FAPES · 99 projetos · 729 bolsas</span></div>
+    <div><b>R$ 20,4 mi</b><span>captados via FACTO · 38 projetos coordenados</span></div>
+    <div><b>7.938</b><span>pessoas atendidas pela extensão e ensino · 3.169 em nichos STEM</span></div>
+  </div>
+</section>
+
+<!-- ITEM I -->
+<section>
+  <span class="eyebrow">item i · fonte: horizon</span>
+  <h2>Linhas de pesquisa direta ou transversalmente relacionadas às áreas STEM</h2>
+  <p class="sub">O campus mantém 18 grupos de pesquisa cadastrados no CNPq (17 distintos — o LEDS aparece duplicado na base). Doze são diretamente STEM, dois transversais, três de humanidades.</p>
+  <div class="roll"><table>
+    <thead><tr><th>Sigla</th><th>Grupo</th><th>Liderança</th><th class="n">Membros</th><th>Vínculo</th><th>Áreas principais</th></tr></thead><tbody>
+    <tr><td class="m">GAIn</td><td><a href="http://dgp.cnpq.br/dgp/espelhogrupo/0809353261155112">Grupo de Automação Industrial</a></td><td>Marco A. S. L. Cuadros · Gustavo Maia de Almeida</td><td class="n">16</td><td><span class="chip stem">stem núcleo</span></td><td>Eng. Elétrica, automação, inspeção industrial</td></tr>
+    <tr><td class="m">NERA</td><td><a href="http://dgp.cnpq.br/dgp/espelhogrupo/0885492618252118">Núcleo de Estudos em Robótica e Automação</a></td><td>Richard J. M. Godinez Tello · Marta T. C. F. Mendes</td><td class="n">124</td><td><span class="chip stem">stem núcleo</span></td><td>Robótica, visão computacional, robótica educacional</td></tr>
+    <tr><td class="m">LAICSI</td><td><a href="http://dgp.cnpq.br/dgp/espelhogrupo/5492811131024993">Lab. de Inteligência Computacional e Sistemas de Informação</a></td><td>Hilário T. A. de Oliveira · Bruno C. Coutinho</td><td class="n">60</td><td><span class="chip stem">stem núcleo</span></td><td>IA, visão computacional, computação afetiva</td></tr>
+    <tr><td class="m">Nu(TeC)²</td><td><a href="http://dgp.cnpq.br/dgp/espelhogrupo/4201359100034312">Núcleo de Estudos em Teoria da Computação</a></td><td>Jefferson O. Andrade · Karin Satie Komati</td><td class="n">58</td><td><span class="chip stem">stem núcleo</span></td><td>Ciência da Computação, blockchain, otimização</td></tr>
+    <tr><td class="m">GAMA</td><td><a href="http://dgp.cnpq.br/dgp/espelhogrupo/9115112132091239">Grupo de Aprendizado de Máquina e Automação</a></td><td>Luiz Alberto Pinto · Daniel Cruz Cavalieri</td><td class="n">22</td><td><span class="chip stem">stem núcleo</span></td><td>Aprendizado de máquina, kits didáticos, ensino de engenharia</td></tr>
+    <tr><td class="m">GERA</td><td><a href="http://dgp.cnpq.br/dgp/espelhogrupo/2498090283444757">Grupo de Energias Renováveis para Automação</a></td><td>Flavio B. Braz da Silva · Danilo de Paula e Silva</td><td class="n">21</td><td><span class="chip stem">stem núcleo</span></td><td>Energia renovável, meteorologia, telemetria</td></tr>
+    <tr><td class="m">GPRO</td><td><a href="http://dgp.cnpq.br/dgp/espelhogrupo/2060704831588381">Grupo de Pesquisa em Redes e Otimização</a></td><td>Leandro C. Resendo · Cristina K. Dominicini</td><td class="n">19</td><td><span class="chip stem">stem núcleo</span></td><td>Redes, otimização, prédios inteligentes</td></tr>
+    <tr><td class="m">GETEC</td><td><a href="http://dgp.cnpq.br/dgp/espelhogrupo/3808551130622600">Grupo de Estudo em Tecnologia, Ensino e Cultura Maker</a></td><td>Rosiane Ribeiro Rocha · Gabriel Tozatto Zago</td><td class="n">17</td><td><span class="chip stem">stem núcleo</span></td><td>Cultura maker, IA, processamento de imagens</td></tr>
+    <tr><td class="m">LEDS</td><td><a href="http://dgp.cnpq.br/dgp/espelhogrupo/1685399817439632">Ontology, Data Science and Integration Research Group</a></td><td>Victorio Albani de Carvalho</td><td class="n">11</td><td><span class="chip stem">stem núcleo</span></td><td>Ontologias, ciência de dados, engenharia de software</td></tr>
+    <tr><td class="m">NEEF</td><td><a href="http://dgp.cnpq.br/dgp/espelhogrupo/8963769597678950">Núcleo de Estudos em Ensino de Física</a></td><td>Leandro Melo de Sá · Rosilene de Sá Ribeiro</td><td class="n">11</td><td><span class="chip stem">stem núcleo</span></td><td>Física, robótica, experimentos didáticos</td></tr>
+    <tr><td class="m">NESC</td><td><a href="http://dgp.cnpq.br/dgp/espelhogrupo/7313036179451336">Núcleo de Estudos em Sistemas Ciberfísicos</a></td><td>Flávio Garcia Pereira · Wagner Teixeira da Costa</td><td class="n">8</td><td><span class="chip stem">stem núcleo</span></td><td>IoT, sistemas de controle, análise de dados</td></tr>
+    <tr><td class="m">GAEE</td><td><a href="http://dgp.cnpq.br/dgp/espelhogrupo/3708150385788812">Grupo de Apoio ao Ensino de Eletrônica</a></td><td>Vinícius Secchin de Melo</td><td class="n">1</td><td><span class="chip stem">stem núcleo</span></td><td>Eng. Elétrica, sistemas analógicos e digitais</td></tr>
+    <tr><td class="m">LEMATEC</td><td><a href="http://dgp.cnpq.br/dgp/espelhogrupo/5268097066450891">Lab. de Metodologias Ativas e Tecnologias Sociais</a></td><td>Bruno Ramos Gonzaga</td><td class="n">11</td><td><span class="chip trans">transversal</span></td><td>Educação, formação de professores, tecnologias sociais</td></tr>
+    <tr><td class="m">NUGEIN</td><td><a href="http://dgp.cnpq.br/dgp/espelhogrupo/5708458833286557">Núcleo de Gestão, Empreendedorismo e Inovação</a></td><td>Adelson Pereira do Nascimento</td><td class="n">9</td><td><span class="chip trans">transversal</span></td><td>Administração, inovação, inteligência competitiva</td></tr>
+    <tr><td class="m">ALMEC</td><td><a href="http://dgp.cnpq.br/dgp/espelhogrupo/4099181037333209">Audiovisual, literatura, música, educação e cultura</a></td><td>Adrianna Machado Meneguelli</td><td class="n">4</td><td><span class="chip nao">não stem</span></td><td>Educação, comunicação, estudos comparatistas</td></tr>
+    <tr><td class="m">—</td><td><a href="http://dgp.cnpq.br/dgp/espelhogrupo/1645393002420957">Educação, trabalho, cultura e organizações</a></td><td>Maikon C. Silva Scaldaferro</td><td class="n">17</td><td><span class="chip nao">não stem</span></td><td>Filosofia, estudos interdisciplinares</td></tr>
+    <tr><td class="m">ECES</td><td><a href="http://dgp.cnpq.br/dgp/espelhogrupo/6166271948718112">História das interações políticas, culturais, econômicas e sociais</a></td><td>Amarildo Mendes Lemos</td><td class="n">4</td><td><span class="chip nao">não stem</span></td><td>História, memória, políticas públicas</td></tr>
+  </tbody></table></div>
+
+  <h3>Linhas temáticas em atividade (derivadas das 461 iniciativas ativas)</h3>
+  <ul>
+    <li><b>Inteligência artificial aplicada à indústria</b> — correias transportadoras, aciaria LD, laminadores, eficiência energética do gás siderúrgico;</li>
+    <li><b>IA aplicada à saúde</b> — raio-X de tórax, OCT com IA interpretável, pré-diagnóstico de câncer de mama, diagnóstico cardiovascular explicável;</li>
+    <li><b>Robótica</b> — robôs de resgate e inspeção, kits RoboTech 4.0, robótica educacional e inclusiva;</li>
+    <li><b>Energia e sustentabilidade</b> — estação meteorológica, microrredes, mobilidade elétrica, gestão energética;</li>
+    <li><b>Redes e cidades inteligentes</b> — Cidades e Prédios Inteligentes 2.2, OPC UA para IoT;</li>
+    <li><b>Ontologias, ciência de dados e engenharia de software</b> — integração de dados, blockchain para rastreabilidade mineral;</li>
+    <li><b>Educação em engenharia e cultura maker</b> — kits didáticos, jogos educacionais, prototipagem CAD/CAE.</li>
+  </ul>
+  <p>Linhas ancoradas pelos cursos do campus — <b>Sistemas de Informação</b>, <b>Engenharia de Controle e Automação</b> e o <b>Mestrado em Computação Aplicada (PPComp)</b> — todos integralmente STEM.</p>
+</section>
+
+<!-- ITEM II -->
+<section>
+  <span class="eyebrow">item ii · fonte: horizon</span>
+  <h2>Mestres e doutores envolvidos com pesquisas nas áreas STEM</h2>
+  <p class="sub">Titulação registrada, separada por vínculo — professores, alunos e colaboradores externos. Base completa: 10.089 pessoas nas redes de pesquisa do campus.</p>
+  <div class="roll"><table>
+    <thead><tr><th>Vínculo</th><th class="n">Pessoas</th><th class="n">Doutores</th><th class="n">Mestres</th><th class="n">Em grupos STEM</th></tr></thead><tbody>
+    <tr><td><b>Professores / servidores</b></td><td class="n">2.472</td><td class="n">98</td><td class="n">35</td><td class="n">184</td></tr>
+    <tr><td><b>Alunos</b></td><td class="n">6.519</td><td class="n">0</td><td class="n">1</td><td class="n">373</td></tr>
+    <tr><td><b>Colaboradores externos / visitantes</b></td><td class="n">849</td><td class="n">0</td><td class="n">6</td><td class="n">0</td></tr>
+    <tr><td>Sem classificação (auditoria pendente)</td><td class="n">249</td><td class="n">0</td><td class="n">5</td><td class="n">0</td></tr>
+    <tr><td><b>Total</b></td><td class="n"><b>10.089</b></td><td class="n"><b>98</b></td><td class="n"><b>47</b></td><td class="n"><b>557</b></td></tr>
+  </tbody></table></div>
+  <p>Entre os 184 professores em grupos STEM, 57 têm doutorado e 12 têm mestrado registrados. <b>186 professores também foram alunos do campus</b> — ex-alunos que hoje pesquisam como servidores.</p>
+  <h3>Envolvimento efetivo com pesquisa STEM</h3>
+  <ul>
+    <li><b>Pós-graduação:</b> PPComp com <b>17 docentes orientadores</b> (doutores), 269 discentes conduzidos, 83 defesas;</li>
+    <li><b>Iniciação científica:</b> 22 docentes orientaram IC de egressos; <b>78,4% dos formandos</b> (240 de 306) passaram por pesquisa;</li>
+    <li><b>Captação FAPES:</b> 41 coordenadores distintos (média de 2,4 projetos cada);</li>
+    <li><b>Projetos FACTO:</b> 47 professores participam, 25 como coordenadores;</li>
+    <li><b>Pipeline interno:</b> 37 egressos da graduação ingressaram no próprio mestrado.</li>
+  </ul>
+  <p class="ressalva"><b>Ressalva:</b> a titulação está registrada para apenas 133 dos 2.472 professores — os números de doutores e mestres são <b>piso, não teto</b>. Para o valor oficial, cruzar com SIAPE/PDI ou Lattes.</p>
+</section>
+
+<!-- ITEM III -->
+<section>
+  <span class="eyebrow">item iii · fontes: horizon + src + facto</span>
+  <h2>Participação em programas e redes de pesquisa relacionadas às áreas STEM</h2>
+  <p class="sub">Programas institucionais, parcerias com o setor produtivo e redes de colaboração.</p>
+  <div class="roll"><table>
+    <thead><tr><th>Programa / rede</th><th>Natureza</th><th>Descrição</th></tr></thead><tbody>
+    <tr><td><b>PPComp — Mestrado em Computação Aplicada</b></td><td>Pós-graduação stricto sensu</td><td>Programa próprio do campus: 269 discentes, 83 defesas, 17 orientadores; 37 egressos da graduação ingressaram</td></tr>
+    <tr><td><b>Programa STEM–IFES</b></td><td>Programa institucional</td><td>Registrado no portal FACTO (natureza Ensino), coord. Adelson Pereira do Nascimento</td></tr>
+    <tr><td><b>PCTec InovaSerra</b></td><td>Ambiente de inovação · FAPES · vigente</td><td>Parque Científico e Tecnológico do InovaSerra — extensão com fomento FAPES iniciada em 2025</td></tr>
+    <tr><td><b>ArcelorMittal Tubarão</b></td><td>Parceria com setor produtivo</td><td>Imersão STEM em automação (RPA &amp; Office 365, 2 etapas, 11 certificados) e projetos ativos em siderurgia: aciaria LD, laminadores, eficiência energética do gás</td></tr>
+    <tr><td><b>Academia Cisco</b></td><td>Rede de formação tecnológica</td><td>Levada às escolas municipais da Serra por ação de extensão (2018)</td></tr>
+    <tr><td><b>LEDS · LabMaker / IFMaker Serra · LAMPEX</b></td><td>Laboratórios em rede</td><td>Laboratório de Extensão em Desenvolvimento de Soluções (desde 2016), espaço maker multiusuário e o LAMPEX — maior público do campus (1.290 pessoas)</td></tr>
+    <tr><td><b>18 grupos CNPq</b></td><td>Redes de pesquisa nacionais</td><td>Cada grupo com espelho público no Diretório de Grupos do CNPq (item I)</td></tr>
+  </tbody></table></div>
+  <h3>Rede de colaboração científica registrada</h3>
+  <ul>
+    <li>Grafo de colaboração global: <b>10.089 pessoas</b> e 11.843 conexões por iniciativas, artigos e orientações;</li>
+    <li><b>849 colaboradores externos</b> ao Ifes nas redes do campus;</li>
+    <li><b>2.298 publicações</b> catalogadas com ano, tipo, DOI e veículo;</li>
+    <li>Na extensão, <b>2.307 pessoas</b> integraram equipes de execução das 201 iniciativas (SRC).</li>
+  </ul>
+</section>
+
+<!-- ITEM IV -->
+<section>
+  <span class="eyebrow">item iv · fontes: horizon + fapes + facto + src</span>
+  <h2>Projetos STEM e extensão com financiamentos vigentes</h2>
+  <p class="sub">Pesquisa ativa, captação de fomento e o alcance da extensão em nichos STEM.</p>
+
+  <h3>Pesquisa — Portal Horizon</h3>
+  <p>O portal registra <b>4.216 projetos de pesquisa</b> no histórico do campus, dos quais <b>461 ativos</b> (452 com vigência formal além de agosto de 2026). Por classificação heurística, <b>~216 dos ativos são diretamente STEM</b>. Amostra dos ativos vinculados a grupos STEM:</p>
+  <div class="roll"><table>
+    <thead><tr><th>Projeto</th><th>Vigência</th><th>Grupo</th></tr></thead><tbody>
+    <tr><td>Uso de IA para o monitoramento do estado de correias transportadoras</td><td class="m">2023–2028</td><td>GAIn</td></tr>
+    <tr><td>Sistema de aquisição de dados e aprendizado de máquina em planta piloto de aciaria LD</td><td class="m">2025–2028</td><td>GAIn</td></tr>
+    <tr><td>Robótica e tecnologia, kits educacionais — RoboTech 4.0</td><td class="m">2023–2027</td><td>GAIn</td></tr>
+    <tr><td>Cidades e Prédios Inteligentes 2.2</td><td class="m">2022–2027</td><td>GPRO</td></tr>
+    <tr><td>Técnicas de IA para melhoria de processos em laminadores de tiras a quente</td><td class="m">2025–2026</td><td>GPRO</td></tr>
+    <tr><td>Estação meteorológica automática para estudos de geração de energia</td><td class="m">2022–2029</td><td>GERA</td></tr>
+    <tr><td>Laboratório Espaço Energia: mobilidade elétrica com implantação de eletroposto</td><td class="m">2023–2026</td><td>GERA</td></tr>
+    <tr><td>Transformação digital e gestão energética: microrredes para um futuro sustentável</td><td class="m">2025–2028</td><td>GERA</td></tr>
+    <tr><td>Mina Digital de Rochas Ornamentais: da lavra à comercialização com blockchain</td><td class="m">2022–2026</td><td>Nu(TeC)²</td></tr>
+    <tr><td>Otimização da eficiência energética do uso de gás na siderurgia usando neuro-evolução</td><td class="m">2022–2026</td><td>Nu(TeC)²</td></tr>
+    <tr><td>VibroLearn: framework para diagnóstico de falhas em máquinas industriais</td><td class="m">2025–2027</td><td>LAICSI</td></tr>
+    <tr><td>ChatRad: conversação multimodal para análise automatizada de radiografias</td><td class="m">2025–2026</td><td>LAICSI</td></tr>
+    <tr><td>Classificação de imagens de OCT com IA interpretável</td><td class="m">2024–2026</td><td>GETEC</td></tr>
+    <tr><td>IA explicável para diagnóstico cardiovascular</td><td class="m">2025–2028</td><td>GETEC</td></tr>
+    <tr><td>VitaBot: robô de resgate e inspeção com sensoriamento visual e térmico</td><td class="m">2025–2026</td><td>NERA</td></tr>
+    <tr><td>VeriScan: inteligência computacional na detecção de imagens manipuladas</td><td class="m">2025–2026</td><td>NERA</td></tr>
+    <tr><td>Kits didáticos para o ensino de Engenharia de Controle e Automação</td><td class="m">2025–2026</td><td>GAMA</td></tr>
+    <tr><td>Protocolo OPC UA como camada de comunicação para dispositivos IoT</td><td class="m">2025–2026</td><td>GAMA</td></tr>
+  </tbody></table></div>
+
+  <h3>Captação de fomento</h3>
+  <div class="roll"><table>
+    <thead><tr><th>Fonte</th><th class="n">Projetos</th><th class="n">Valor</th><th>Situação</th></tr></thead><tbody>
+    <tr><td><b>FAPES</b> (histórico do campus)</td><td class="n">99</td><td class="n">R$ 48,5 mi</td><td>62 em andamento (R$ 46,1 mi) — 27 no prazo (R$ 28,5 mi) e 35 com prazo vencido a regularizar (R$ 17,6 mi); 729 bolsas (R$ 26,4 mi, 54% do orçamento); ticket médio R$ 490 mil; 41 coordenadores</td></tr>
+    <tr><td><b>FACTO</b> (fundação de apoio)</td><td class="n">60</td><td class="n">R$ 20,4 mi*</td><td>60 projetos com participação de docentes da Serra; 38 coordenados pelo campus (*valor atribuível); 28 de PD&amp;I; pico de captação em 2024–2025</td></tr>
+  </tbody></table></div>
+
+  <h3>Extensão e ensino — Portal SRC (201 iniciativas, 2013–2026)</h3>
+  <p>O SRC consolida as 201 iniciativas com público atendido e status: <b>7.938 pessoas atendidas</b>, <b>10.245 participações</b>, <b>2.307 integrantes de equipe</b>, taxa de certificação de 84,7%. Os nichos temáticos STEM concentram o maior alcance:</p>
+  <div class="roll"><table>
+    <thead><tr><th>Nicho temático (SRC)</th><th class="n">Iniciativas</th><th class="n">Público</th><th class="n">Ativas</th><th class="n">Público das ativas</th></tr></thead><tbody>
+    <tr><td>Robótica e cultura maker</td><td class="n">26</td><td class="n">2.823</td><td class="n">7</td><td class="n">2.028</td></tr>
+    <tr><td>Software, dados e sistemas</td><td class="n">16</td><td class="n">189</td><td class="n">2</td><td class="n">25</td></tr>
+    <tr><td>Ciência e divulgação</td><td class="n">13</td><td class="n">157</td><td class="n">2</td><td class="n">48</td></tr>
+    <tr><td><b>Subtotal STEM</b></td><td class="n"><b>55</b></td><td class="n"><b>3.169</b></td><td class="n"><b>11</b></td><td class="n"><b>2.101</b></td></tr>
+    <tr><td>Demais nichos (inclusão, cultura, saúde, empreendedorismo…)</td><td class="n">146</td><td class="n">4.769</td><td class="n">39</td><td class="n">1.586</td></tr>
+  </tbody></table></div>
+  <ul>
+    <li>O nicho <b>Robótica e cultura maker é o de maior público do campus</b> (2.823 atendimentos — 36% do total), puxado pelo <b>LAMPEX</b> (1.290 pessoas, PAEX-Ifes) e pelo <b>LabMaker Serra</b> (490 pessoas), ambos ativos;</li>
+    <li><b>Jornada dos formados:</b> dos 306 egressos da graduação, <b>190 (62%) participaram de extensão</b> durante o curso — mediana de 2 anos entre o ingresso e a primeira ação;</li>
+    <li>Pela grande área do conhecimento, <b>58 das 109 ações de extensão (53%)</b> são de Engenharias ou Ciências Exatas e da Terra;</li>
+    <li><b>12 ações de extensão vigentes</b> em 2025–2026.</li>
+  </ul>
+
+  <p><b>Extensão STEM com financiamento vigente:</b></p>
+  <div class="roll"><table>
+    <thead><tr><th>Ação</th><th>Fomento</th><th>Início</th></tr></thead><tbody>
+    <tr><td>Parque Científico e Tecnológico do InovaSerra — PCTec InovaSerra</td><td><span class="chip stem">fapes</span></td><td class="m">2025</td></tr>
+    <tr><td>Jovens Inventores: o poder da tecnologia maker no desenvolvimento social</td><td><span class="chip stem">fapes</span></td><td class="m">2025</td></tr>
+    <tr><td>LabMaker 4.0: cultura maker e tecnologias da Indústria 4.0 para professores</td><td><span class="chip stem">paex-ifes</span></td><td class="m">2025</td></tr>
+    <tr><td>Mulheres Mil — Eletricista Instalador Predial em Baixa Tensão</td><td><span class="chip stem">setec</span></td><td class="m">2026</td></tr>
+  </tbody></table></div>
+
+  <p><b>Iniciativas explicitamente rotuladas "STEM" no histórico:</b></p>
+  <ul>
+    <li><b>STEM — Experiência de Imersão</b> (ArcelorMittal, extensão, 2022–2024): 2 etapas, 11 certificados, coord. Adelson Pereira do Nascimento;</li>
+    <li><b>Oficinas do Mundo Maker</b> (ensino, 2023): laboratório maker voltado às disciplinas STEM, coord. Rosiane Ribeiro Rocha;</li>
+    <li><b>Programa STEM–IFES</b> (FACTO, ensino), coord. Adelson Pereira do Nascimento.</li>
+  </ul>
+</section>
+
+<!-- RESSALVAS -->
+<section>
+  <span class="eyebrow">ressalvas metodológicas</span>
+  <h2>Ler antes de usar em documento oficial</h2>
+  <ul>
+    <li><b>Titulação é piso:</b> formação acadêmica registrada para apenas 133 dos 2.472 professores — totais reais de mestres e doutores são maiores;</li>
+    <li><b>Classificação STEM heurística:</b> os ~216 projetos ativos STEM foram classificados por palavras-chave — recomenda-se validação amostral;</li>
+    <li><b>Prazo vencido:</b> 35 dos 62 projetos FAPES "em andamento" têm data-fim passada sem encerramento no sistema; vigência estrita = 27 projetos (R$ 28,5 mi);</li>
+    <li><b>Vinculação a grupos incompleta:</b> 391 das 461 iniciativas ativas sem grupo registrado — a distribuição por grupo subestima a atividade;</li>
+    <li><b>Público subestimado (SRC):</b> o indicador conta registros de inscrição/certificação — plataformas digitais e serviços estaduais (ex.: ConectaFapes) aparecem subestimados;</li>
+    <li><b>Relatório-fonte preliminar:</b> o estudo "Pesquisa na Formação" está marcado como experimental pelos autores;</li>
+    <li><b>Linhas formais do PPComp:</b> confirmar nomenclatura oficial das linhas no site do programa antes da submissão.</li>
+  </ul>
+</section>
+
+<!-- RESUMO / RESPOSTA PRONTA -->
+<section style="border-bottom:0">
+  <span class="eyebrow">resumo · resposta à seção a do edital</span>
+  <h2>Seção A — Dimensão da pesquisa vinculada às áreas STEM</h2>
+  <p class="sub">Texto-síntese pronto para o campus proponente, respondendo cada item com os dados consolidados acima.</p>
+
+  <h3>I — Linhas de pesquisa direta ou transversalmente relacionadas às áreas STEM</h3>
+  <p>O Campus Serra atua majoritariamente em áreas STEM: <b>12 dos seus 18 grupos de pesquisa cadastrados no CNPq</b> são diretamente vinculados a essas áreas — automação industrial (GAIn), robótica e automação (NERA), inteligência computacional e sistemas de informação (LAICSI), teoria da computação (Nu(TeC)²), aprendizado de máquina (GAMA), energias renováveis (GERA), redes e otimização (GPRO), tecnologia e cultura maker (GETEC), ontologias e ciência de dados (LEDS), ensino de física (NEEF), sistemas ciberfísicos (NESC) e eletrônica (GAEE) — além de dois grupos transversais, em metodologias ativas com tecnologias sociais (LEMATEC) e gestão da inovação (NUGEIN). As linhas em atividade cobrem IA aplicada à indústria e à saúde, robótica, energia, redes e cidades inteligentes, ciência de dados e educação em engenharia, ancoradas pelos cursos de Sistemas de Informação, Engenharia de Controle e Automação e pelo Mestrado em Computação Aplicada (PPComp).</p>
+
+  <h3>II — Mestres e doutores envolvidos com pesquisas nas áreas STEM</h3>
+  <p>A base institucional identifica, entre os <b>2.472 professores/servidores</b> com atuação registrada em pesquisa, <b>98 doutores e 35 mestres</b> (valores-piso — titulação registrada para parte do quadro), dos quais <b>184 professores estão vinculados a grupos STEM</b> (57 doutores e 12 mestres com titulação registrada). O PPComp conta com <b>17 docentes orientadores doutores</b> (269 discentes, 83 defesas); 22 docentes orientaram iniciação científica de egressos, 41 captaram fomento FAPES e 47 participam de projetos geridos pela FACTO. A pesquisa alcança 78,4% dos formandos da graduação, e 373 alunos integram grupos de pesquisa STEM.</p>
+
+  <h3>III — Participação em programas e/ou redes de pesquisa relacionadas às áreas STEM</h3>
+  <p>O campus mantém o <b>PPComp</b> (stricto sensu em Computação Aplicada), <b>18 grupos de pesquisa CNPq</b> com espelho público, o <b>Programa STEM–IFES</b>, o <b>Parque Científico e Tecnológico InovaSerra</b> (PCTec InovaSerra, fomento FAPES, vigente), parcerias de P&amp;D com o setor produtivo (<b>ArcelorMittal Tubarão</b> — imersão STEM e projetos em siderurgia), a <b>Academia Cisco</b> em escolas municipais e laboratórios em rede (<b>LEDS, LabMaker/IFMaker Serra e LAMPEX</b>). A rede de colaboração científica registrada envolve <b>10.089 pessoas</b>, 849 colaboradores externos e <b>2.298 publicações</b> catalogadas.</p>
+
+  <h3>IV — Projetos relacionados às áreas STEM e extensão com financiamentos vigentes</h3>
+  <p>O campus registra <b>461 iniciativas de pesquisa ativas</b>, das quais cerca de <b>216 diretamente STEM</b>. Junto à FAPES acumula <b>99 projetos (R$ 48,5 milhões contratados e 729 bolsas)</b>, com 62 em andamento (R$ 46,1 milhões); pela FACTO, 60 projetos com participação de docentes do campus, <b>38 coordenados pelo campus (R$ 20,4 milhões)</b>, sendo 28 de PD&amp;I. Na extensão, os nichos STEM somam <b>55 iniciativas e 3.169 pessoas atendidas</b> — o nicho Robótica e cultura maker é o de maior público do campus — e, entre as ações vigentes em 2025–2026 com fomento, estão o PCTec InovaSerra (FAPES), Jovens Inventores (FAPES), LabMaker 4.0 (PAEX-Ifes) e Mulheres Mil — Eletricista (SETEC).</p>
+</section>
+</main>
+
+<footer><div class="wrap fr">
+  <span>IFES — Campus Serra</span>
+  <a href="/horizon_dashboard/" >portal horizon (pesquisa)</a>
+  <a href="/src/">portal src (extensão)</a>
+  <a href="pesquisa-stem.txt" download>baixar .txt</a>
+  <span style="margin-left:auto">horizon 18/05/2026 · src ref. 2026 · cc by 4.0</span>
+</div></footer>
+</body>
+</html>
