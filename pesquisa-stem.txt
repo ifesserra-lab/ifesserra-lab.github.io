@@ -13,13 +13,17 @@
 
 | Indicador | Valor |
 |---|---|
-| Grupos de pesquisa CNPq diretamente STEM | 12 de 18 cadastrados |
-| Iniciativas de pesquisa ativas | 461 (~216 diretamente STEM) |
-| Professores pesquisadores / alunos / externos | 2.472 / 6.519 / 849 |
-| Doutores / mestres entre professores (registrados) | 98 / 35 (piso — ver ressalvas) |
+| Grupos de pesquisa CNPq do campus (todos Serra) | 18 · 12 diretamente STEM |
+| Projetos de pesquisa do campus (histórico) | 4.211 (excluídos 5 vinculados a grupo de outro campus) |
+| Projetos ativos | 456 — 76 com vigência confirmada por data · 371 sem data-fim · 9 vencidas |
+| Professores lotados no campus Serra | 95 (52 doutores, 6 mestres registrados) |
+| Alunos do campus na base de pesquisa | 245 |
+| Membros oficiais dos grupos de pesquisa | 360 (114 professores, 246 alunos) · 318 em grupos STEM |
 | Captação FAPES (histórico) | R$ 48,5 mi · 99 projetos · 729 bolsas |
 | Captação FACTO (coordenados pelo campus) | R$ 20,4 mi · 38 projetos |
 | Formandos da graduação com iniciação científica | 78,4% (240 de 306) |
+
+**Escopo Serra:** os 18 grupos de pesquisa, os cursos, o PPComp, a captação FAPES/FACTO e todo o portal SRC são do campus Serra. A base de pessoas do Horizon (10.089) é a **rede de colaboração** e inclui pesquisadores de todo o IFES (Vitória, Vila Velha, Alegre etc.) — este relatório considera **apenas os lotados no campus Serra** ou vinculados aos grupos do campus. Das iniciativas de pesquisa, 5 vinculadas a grupo do campus Presidente Kennedy foram excluídas.
 
 ---
 
@@ -67,17 +71,23 @@ Essas linhas são ancoradas pelos cursos do campus — **Bacharelado em Sistemas
 
 ## Item II — Mestres e doutores envolvidos com pesquisas nas áreas STEM
 
-A base completa de pessoas do Portal Horizon (`researchers_canonical`) registra **10.089 pessoas** nas redes de pesquisa do campus, separadas por vínculo:
+Filtrando a base de pessoas do Portal Horizon **apenas pelo campus Serra**:
 
-| Vínculo | Pessoas | Doutores | Mestres | Vinculados a grupos STEM |
-|---|---|---|---|---|
-| **Professores/servidores** (classificação `researcher`, `was_staff`) | 2.472 | 98 | 35 | 184 (57 doutores, 12 mestres registrados) |
-| **Alunos** (classificação `student`) | 6.519 | 0 | 1 | 373 |
-| **Colaboradores externos/visitantes** (`outside_ifes`) | 849 | 0 | 6 | 0 |
-| **Sem classificação** (auditoria pendente) | 249 | 0 | 5 | 0 |
-| **Total** | **10.089** | **98** | **47** | **557** |
+**Pessoas lotadas no campus Serra:**
 
-Dos 2.472 professores, **186 também foram alunos do campus** (ex-alunos que hoje pesquisam como servidores). Titulação refere-se ao campo `academic_education` (preenchimento parcial — ver ressalvas); vínculo a grupo STEM é heurístico pelo nome do grupo.
+| Vínculo | Pessoas | Doutores | Mestres |
+|---|---|---|---|
+| **Professores/servidores do campus** | 95 | 52 | 6 |
+| **Alunos do campus** | 245 | 0 | 0 |
+
+**Membros oficiais dos 18 grupos de pesquisa do campus** (cadastro CNPq espelhado — 340 dos 360 lotados na Serra):
+
+| Escopo | Membros | Professores | Alunos | Doutores | Mestres |
+|---|---|---|---|---|---|
+| Todos os 18 grupos | 360 | 114 | 246 | 57 | 6 |
+| **Somente os 12 grupos STEM** | **318** | **85** | **233** | **50** | **5** |
+
+A base completa do Horizon (10.089 pessoas) é a rede de colaboração de todo o IFES e **não** representa o quadro do campus — os números acima usam o campus de lotação e o cadastro oficial de membros dos grupos (todos os grupos são do campus Serra).
 
 | Indicador | Valor |
 |---|---|
@@ -119,7 +129,17 @@ Dos 2.472 professores, **186 também foram alunos do campus** (ex-alunos que hoj
 
 ### Pesquisa — Portal Horizon
 
-O portal registra **4.216 projetos de pesquisa** no histórico do campus, dos quais **461 estão ativos ou em andamento** (452 com vigência formal além de agosto de 2026). Por classificação heurística de título, áreas de conhecimento e grupo, **cerca de 216 dos ativos são diretamente STEM**.
+O portal registra **4.211 projetos de pesquisa do campus Serra** no histórico (5 registros vinculados a grupo do campus Presidente Kennedy foram excluídos), dos quais **456 estão com status ativo/em andamento**. Por classificação heurística de título, áreas de conhecimento e grupo, **cerca de 216 dos ativos são diretamente STEM**.
+
+**Auditoria de vigência dos 456 ativos** (datas de início/fim × 24/08/2026):
+
+| Situação | Qtde |
+|---|---|
+| Vigência **confirmada por data** (fim ≥ hoje) | 76 |
+| **Sem data-fim registrada** (vigência não verificável) | 371 |
+| **Prazo vencido** com status ainda ativo | 9 |
+
+Das 9 vencidas: 6 são registros claramente desatualizados (fins entre 2019 e 2024 — ex.: Núcleo Emergente em Redes Definidas por Software, STATCOM, Polynomial Key-based Architecture) e 3 venceram em 31/07/2026 (Laboratório Espaço Energia, Classificação de OCT com IA, Classificador de Briquetes) — renovação/encerramento provavelmente em trâmite. As 76 confirmadas terminam entre 2026 e 2029. As orientações/bolsas (advisorships) estão consistentes: as 70 ativas têm fim futuro.
 
 Amostra de projetos ativos vinculados a grupos STEM:
 
@@ -194,13 +214,15 @@ Iniciativas explicitamente rotuladas "STEM" no histórico:
 
 ## Ressalvas metodológicas
 
-1. **Titulação é piso:** formação acadêmica preenchida em apenas 133 de 2.472 registros de pesquisadores — os totais reais de mestres e doutores são maiores
-2. **Classificação STEM heurística:** os ~216 projetos ativos STEM foram classificados por palavras-chave em título, áreas e grupo — recomenda-se validação amostral
-3. **Prazo vencido:** 35 dos 62 projetos FAPES "em andamento" têm data-fim já passada sem encerramento no sistema; se o edital exigir vigência estrita, usar 27 projetos (R$ 28,5 mi)
-4. **Vinculação a grupos incompleta:** 391 das 461 iniciativas ativas não têm grupo de pesquisa registrado na base — a distribuição por grupo subestima a atividade
-5. **Relatório-fonte preliminar:** o estudo "Pesquisa na Formação" está marcado como experimental pelos autores
-6. **Linhas formais do PPComp:** confirmar a nomenclatura oficial das linhas de pesquisa no site do programa antes da submissão
-7. **Público subestimado (SRC):** o indicador de público conta registros de inscrição/certificação — plataformas digitais e serviços estaduais (ex.: ConectaFapes) aparecem subestimados
+1. **Titulação é piso:** formação acadêmica registrada para 58 dos 95 professores do campus (52 doutores + 6 mestres) — o quadro oficial completo vem do SIAPE/PDI; 19 pesquisadores sem campus registrado (11 doutores) podem pertencer ao campus
+2. **Rede vs. campus:** a base de pessoas do Horizon (10.089) cobre colaboradores de todo o IFES; este relatório usa apenas lotados na Serra e membros oficiais dos grupos do campus
+3. **Vigência não verificável na maioria:** 371 dos 456 projetos ativos não têm data-fim registrada; apenas 76 têm vigência confirmada por data, e 9 estão com prazo vencido e status desatualizado
+4. **Classificação STEM heurística:** os ~216 projetos ativos STEM foram classificados por palavras-chave em título, áreas e grupo — recomenda-se validação amostral
+5. **Prazo vencido (FAPES):** 35 dos 62 projetos "em andamento" têm data-fim já passada sem encerramento no sistema; se o edital exigir vigência estrita, usar 27 projetos (R$ 28,5 mi)
+6. **Vinculação a grupos incompleta:** 388 das 456 iniciativas ativas não têm grupo de pesquisa registrado — a distribuição por grupo subestima a atividade
+7. **Relatório-fonte preliminar:** o estudo "Pesquisa na Formação" está marcado como experimental pelos autores
+8. **Linhas formais do PPComp:** confirmar a nomenclatura oficial das linhas de pesquisa no site do programa antes da submissão
+9. **Público subestimado (SRC):** o indicador de público conta registros de inscrição/certificação — plataformas digitais e serviços estaduais (ex.: ConectaFapes) aparecem subestimados
 
 ---
 
@@ -208,8 +230,8 @@ Iniciativas explicitamente rotuladas "STEM" no histórico:
 
 **I — Linhas de pesquisa.** O Campus Serra atua majoritariamente em áreas STEM: 12 dos seus 18 grupos de pesquisa cadastrados no CNPq são diretamente vinculados a essas áreas — automação industrial (GAIn), robótica e automação (NERA), inteligência computacional e sistemas de informação (LAICSI), teoria da computação (Nu(TeC)²), aprendizado de máquina (GAMA), energias renováveis (GERA), redes e otimização (GPRO), tecnologia e cultura maker (GETEC), ontologias e ciência de dados (LEDS), ensino de física (NEEF), sistemas ciberfísicos (NESC) e eletrônica (GAEE) — além de dois grupos transversais (LEMATEC e NUGEIN). As linhas em atividade cobrem IA aplicada à indústria e à saúde, robótica, energia, redes e cidades inteligentes, ciência de dados e educação em engenharia, ancoradas pelos cursos de Sistemas de Informação, Engenharia de Controle e Automação e pelo Mestrado em Computação Aplicada (PPComp).
 
-**II — Mestres e doutores.** Entre os 2.472 professores/servidores com atuação registrada em pesquisa, constam 98 doutores e 35 mestres (valores-piso), dos quais 184 vinculados a grupos STEM (57 doutores e 12 mestres registrados). O PPComp conta com 17 docentes orientadores doutores (269 discentes, 83 defesas); 22 docentes orientaram IC de egressos, 41 captaram fomento FAPES e 47 participam de projetos FACTO. A pesquisa alcança 78,4% dos formandos, e 373 alunos integram grupos STEM.
+**II — Mestres e doutores.** O campus Serra conta com 95 professores/servidores com atuação registrada em pesquisa, sendo **52 doutores e 6 mestres** com titulação registrada (valores-piso). Os 18 grupos de pesquisa do campus reúnem 360 membros oficiais — nos 12 grupos STEM são **318 membros: 85 professores (50 doutores) e 233 alunos**. O PPComp conta com 17 docentes orientadores doutores (269 discentes, 83 defesas); 22 docentes orientaram IC de egressos, 41 captaram fomento FAPES e 47 participam de projetos FACTO. A pesquisa alcança 78,4% dos formandos da graduação.
 
 **III — Programas e redes.** O campus mantém o PPComp, 18 grupos CNPq com espelho público, o Programa STEM–IFES, o PCTec InovaSerra (FAPES, vigente), parcerias de P&D com o setor produtivo (ArcelorMittal Tubarão), a Academia Cisco em escolas municipais e laboratórios em rede (LEDS, LabMaker/IFMaker Serra e LAMPEX). A rede de colaboração científica registrada envolve 10.089 pessoas, 849 colaboradores externos e 2.298 publicações.
 
-**IV — Projetos e extensão com financiamento vigente.** 461 iniciativas de pesquisa ativas (~216 diretamente STEM). FAPES: 99 projetos, R$ 48,5 milhões, 729 bolsas, 62 em andamento (R$ 46,1 milhões). FACTO: 60 projetos com participação do campus, 38 coordenados (R$ 20,4 milhões), 28 de PD&I. Extensão: nichos STEM somam 55 iniciativas e 3.169 pessoas atendidas — Robótica e cultura maker é o nicho de maior público do campus — e, entre as vigentes 2025–2026 com fomento: PCTec InovaSerra (FAPES), Jovens Inventores (FAPES), LabMaker 4.0 (PAEX-Ifes) e Mulheres Mil — Eletricista (SETEC).
+**IV — Projetos e extensão com financiamento vigente.** O campus registra 456 iniciativas de pesquisa com status ativo (~216 diretamente STEM), das quais 76 com vigência confirmada por data até 2029 — a maioria (371) não tem data-fim registrada no sistema. FAPES: 99 projetos, R$ 48,5 milhões, 729 bolsas, 62 em andamento (R$ 46,1 milhões). FACTO: 60 projetos com participação do campus, 38 coordenados (R$ 20,4 milhões), 28 de PD&I. Extensão: nichos STEM somam 55 iniciativas e 3.169 pessoas atendidas — Robótica e cultura maker é o nicho de maior público do campus — e, entre as vigentes 2025–2026 com fomento: PCTec InovaSerra (FAPES), Jovens Inventores (FAPES), LabMaker 4.0 (PAEX-Ifes) e Mulheres Mil — Eletricista (SETEC).
